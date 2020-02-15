@@ -89,9 +89,12 @@
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
+        <!-- 
           <links>
             <link>http://docs.oracle.com/javase/8/docs/api/</link>
           </links>
+         -->
+          <release>8</release>
         </configuration>
         <executions>
           <execution>

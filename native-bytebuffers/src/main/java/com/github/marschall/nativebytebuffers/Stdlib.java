@@ -3,10 +3,14 @@ package com.github.marschall.nativebytebuffers;
 import java.nio.ByteBuffer;
 import java.util.Objects;
 
-public class Stdlib {
+public final class Stdlib {
 
   static {
     LibraryLoader.assertInitialized();
+  }
+
+  private Stdlib() {
+    throw new AssertionError("not instantiable");
   }
 
   public static ByteBuffer malloc(int size) {
@@ -24,7 +28,7 @@ public class Stdlib {
 
   public static void free(ByteBuffer buffer) {
     Objects.requireNonNull(buffer, "buffer");
-    if (buffer.hasArray()) {
+    if (!buffer.isDirect()) {
       throw new IllegalArgumentException("only direct buffers can be fee()ed");
     }
     free0(buffer);

@@ -18,13 +18,13 @@ public class JmhMain {
   public static void main(String[] args) throws RunnerException {
     Options options = new OptionsBuilder()
             .include(JmhMain.class.getPackage().getName() + ".*")
-            .jvmArgs("-Xms4g", "-XX:MaxDirectMemorySize=512M")
+            .jvmArgs("-Xmx4g", "-XX:MaxDirectMemorySize=512M")
             .warmupIterations(5)
             .measurementIterations(5)
             .forks(3)
             .resultFormat(TEXT)
-            .threads(Integer.parseInt(args[0]))
-            .output(args[1])
+//            .threads(Integer.parseInt(args[0]))
+            .output("results.txt")
             .build();
     new Runner(options).run();
   }
