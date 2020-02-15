@@ -8,13 +8,13 @@
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
   (JNIEnv *env, jclass clazz, jint length, jint flags)
 {
-  void *addr = NULL;
+  int prot = PROT_READ | PROT_WRITE;
   int fd = -1;
-  void *ptr = mmap(addr, length, int prot, int flags,
-                  fd, off_t offset);
-  if (ptr)
+  off_t offset = 0;
+  void *addr = mmap(NULL, length, prot, flags, fd, offset);
+  if (addr)
   {
-    return (*env)->NewDirectByteBuffer(env, ptr, length);
+    return (*env)->NewDirectByteBuffer(env, addr, length);
   }
   else
   {
@@ -23,15 +23,15 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
 }
 
 JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
-  (JNIEnv *env, jclass clazz, jobject buf, jint length)
+  (JNIEnv *env, jclass clazz, jobject buf)
 {
-  jlong capatcity = (*env)->GetDirectBufferCapacity(JNIEnv* env, jobject buf);
+  jlong capatcity = (*env)->GetDirectBufferCapacity(env, buf);
   if (capatcity != -1)
   {
-    void *ptr = (*env)->GetDirectBufferAddress(env, buf);
-    if (ptr)
+    void *addr = (*env)->GetDirectBufferAddress(env, buf);
+    if (addr)
     {
-      int success = int munmap(void *addr, size_t length);
+      int success = munmap(addr, capatcity);
     }
   }
 }

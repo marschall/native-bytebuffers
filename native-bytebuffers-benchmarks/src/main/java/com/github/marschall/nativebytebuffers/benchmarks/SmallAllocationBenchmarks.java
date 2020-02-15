@@ -12,14 +12,14 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
 
-import com.github.marschall.nativebytebuffers.Stdlib;
+import com.github.marschall.nativebytebuffers.Mman;
 
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Benchmark)
-public class AllocationBenchmarks {
+public class SmallAllocationBenchmarks {
 
-  @Param({"1024", "8192", "1048576"})
+  @Param({"4096", "1048576"})
   public int allocationSize;
 
   @Benchmark
@@ -29,9 +29,9 @@ public class AllocationBenchmarks {
 
   @Benchmark
   public void malloc(Blackhole blackhole) {
-    ByteBuffer buffer = Stdlib.malloc(this.allocationSize);
+    ByteBuffer buffer = Mman.mmap(this.allocationSize);
     blackhole.consume(buffer);
-    Stdlib.free(buffer);
+    Mman.munmap(buffer);
   }
 
 }

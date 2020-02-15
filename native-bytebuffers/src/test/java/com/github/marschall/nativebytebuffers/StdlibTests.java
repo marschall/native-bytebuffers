@@ -17,9 +17,12 @@ class StdlibTests {
     ByteBuffer buffer = Stdlib.malloc(size);
     assertNotNull(buffer);
 
-    assertEquals(size, buffer.capacity());
+    try {
+      assertEquals(size, buffer.capacity());
+    } finally {
+      Stdlib.free(buffer);
+    }
 
-    Stdlib.free(buffer);
   }
 
   @Test
@@ -35,13 +38,18 @@ class StdlibTests {
   @Test
   void writeAndReadContents() {
     ByteBuffer buffer = Stdlib.malloc(16);
-    byte[] written = new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0xA, 0xB, 0xC, 0xD, 0xE};
-    buffer.put(written);
-    buffer.flip();
+    assertNotNull(buffer);
+    try {
+      byte[] written = new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0xA, 0xB, 0xC, 0xD, 0xE};
+      buffer.put(written);
+      buffer.flip();
 
-    byte[] read = new byte[16];
-    buffer.get(read);
-    assertArrayEquals(written, read);
+      byte[] read = new byte[16];
+      buffer.get(read);
+      assertArrayEquals(written, read);
+    } finally {
+      Stdlib.free(buffer);
+    }
   }
 
 }

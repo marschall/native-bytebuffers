@@ -13,6 +13,10 @@ public final class Mman {
     throw new AssertionError("not instantiable");
   }
 
+  public static ByteBuffer mmap(int length) {
+    return mmap(length, MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_SHARED);
+  }
+
   public static ByteBuffer mmap(int length, int flags) {
     if (length <= 0) {
       throw new IllegalArgumentException("non postive length: " + length);
@@ -27,10 +31,10 @@ public final class Mman {
     if (!buffer.isDirect()) {
       throw new IllegalArgumentException("only direct buffers can be munmap()ed");
     }
-    munmap0(buffer, buffer.capacity());
+    munmap0(buffer);
   }
 
-  private static native void munmap0(ByteBuffer buffer, int length);
+  private static native void munmap0(ByteBuffer buffer);
 
   public static int getpagesize() {
     return getpagesize0();
