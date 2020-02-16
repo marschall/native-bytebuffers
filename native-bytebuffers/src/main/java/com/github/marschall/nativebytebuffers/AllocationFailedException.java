@@ -1,6 +1,9 @@
 package com.github.marschall.nativebytebuffers;
 
-public final class AllocationFailedException extends RuntimeException {
+/**
+ * Signals a memory allocation has failed.
+ */
+public final class AllocationFailedException extends MemoryManagementException {
 
   AllocationFailedException() {
     super();

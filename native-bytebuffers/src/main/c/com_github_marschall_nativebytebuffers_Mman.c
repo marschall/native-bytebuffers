@@ -12,7 +12,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
   int fd = -1;
   off_t offset = 0;
   void *addr = mmap(NULL, length, prot, flags, fd, offset);
-  if (addr)
+  if (addr != MAP_FAILED)
   {
     return (*env)->NewDirectByteBuffer(env, addr, length);
   }
