@@ -13,13 +13,13 @@ class MmanTests {
 
   @Test
   void getpagesize() {
-    int pagesize = Mman.getpagesize();
+    int pagesize = Math.toIntExact(Mman.getpagesize());
     assertTrue(pagesize > 0);
   }
 
   @Test
   void mmapSuccess() {
-    int pagesize = Mman.getpagesize();
+    int pagesize = Math.toIntExact(Mman.getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
     assertNotNull(buffer);
     try {
@@ -31,7 +31,7 @@ class MmanTests {
 
   @Test
   void writeAndReadContents() {
-    int pagesize = Mman.getpagesize();
+    int pagesize = Math.toIntExact(Mman.getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
     assertNotNull(buffer);
 

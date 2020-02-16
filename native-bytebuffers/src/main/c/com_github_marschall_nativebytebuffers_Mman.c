@@ -36,7 +36,7 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
   }
 }
 
-JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getpagesize0
+JNIEXPORT jlong JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getpagesize0
   (JNIEnv *env, jclass clazz)
 {
   return sysconf(_SC_PAGESIZE);

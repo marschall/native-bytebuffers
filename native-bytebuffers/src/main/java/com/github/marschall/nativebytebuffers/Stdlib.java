@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.util.Objects;
 
 /**
- * Provides access for memory management using {@code stdlib.h}.
+ * Provides access to memory management using {@code stdlib.h}.
  */
 public final class Stdlib {
 
@@ -19,13 +19,17 @@ public final class Stdlib {
   /**
    * Calls {@code malloc()} and wraps the result in a {@link ByteBuffer}
    *
-   * @param size the number of bytes to allocate, must be positive
-   * @return the new buffer,
-   *         never {@code null},
-   *         the content is uninitialized as per {@code malloc()} contract
-   * @throws AllocationFailedException if {@code malloc} returns {@code NULL}
-   * @throws IllegalArgumentException if {@code size} is not positive
-   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
+   * @param size
+   *          the number of bytes to allocate, must be positive, {@code int}
+   *          because {@link ByteBuffer} only supports {@code int} indices
+   * @return the new buffer, never {@code null}, the content is uninitialized as
+   *         per {@code malloc()} contract
+   * @throws AllocationFailedException
+   *           if {@code malloc} returns {@code NULL}
+   * @throws IllegalArgumentException
+   *           if {@code size} is not positive
+   * @see <a href=
+   *      "http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
    */
   public static ByteBuffer malloc(int size) {
     if (size <= 0) {
@@ -54,8 +58,7 @@ public final class Stdlib {
    *           if {@code buffer} is {@code null}
    * @throws IllegalArgumentException
    *           if {@code buffer} is not a direct buffer
-   * @see <a href=
-   *      "http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
+   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
    */
   public static void free(ByteBuffer buffer) {
     Objects.requireNonNull(buffer, "buffer");
