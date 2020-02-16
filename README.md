@@ -1,4 +1,4 @@
-Native ByteBuffers
+Native ByteBuffers [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.marschall/native-bytebuffers/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.marschall/native-bytebuffers) [![Javadocs](https://www.javadoc.io/badge/com.github.marschall/native-bytebuffers.svg)](https://www.javadoc.io/doc/com.github.marschall/native-bytebuffers)
 ==================
 
 ByteBuffers that are allocated and released directly with `malloc`/`mmap` and `free`/`munmap`.
