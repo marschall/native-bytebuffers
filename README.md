@@ -3,6 +3,30 @@ Native ByteBuffers
 
 ByteBuffers that are allocated and released directly with `malloc`/`mmap` and `free`/`munmap`.
 
+Usage
+-----
+
+```java
+ByteBuffer buffer = Stdlib.malloc(size);
+
+try {
+  // do things with the buffer
+} finally {
+  Stdlib.free(buffer);
+}
+```
+
+```java
+ByteBuffer buffer = Mman.mmap(length);
+
+try {
+  // do things with the buffer
+} finally {
+  Mman.munmap(buffer);
+}
+```
+
+
 Why would you want this?
 ------------------------
 
