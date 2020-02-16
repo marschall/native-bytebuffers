@@ -22,14 +22,16 @@ public final class Stdlib {
    * @param size
    *          the number of bytes to allocate, must be positive, {@code int}
    *          because {@link ByteBuffer} only supports {@code int} indices
-   * @return the new buffer, never {@code null}, the content is uninitialized as
-   *         per {@code malloc()} contract
+   * @return the new buffer,
+   *         never {@code null},
+   *         the content is uninitialized as per {@code malloc()} contract,
+   *         must be released with {@link #free(ByteBuffer)}
    * @throws AllocationFailedException
    *           if {@code malloc} returns {@code NULL}
    * @throws IllegalArgumentException
    *           if {@code size} is not positive
-   * @see <a href=
-   *      "http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
+   * @see #free(ByteBuffer)
+   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
    */
   public static ByteBuffer malloc(int size) {
     if (size <= 0) {

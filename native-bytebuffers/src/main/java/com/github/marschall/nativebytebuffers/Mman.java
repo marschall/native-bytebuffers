@@ -15,25 +15,51 @@ public final class Mman {
     throw new AssertionError("not instantiable");
   }
 
+  /**
+   * Calls {@code mmap()} to create an anonymous shared virtual memory region
+   * and creates a {@code ByteBuffer} around it.
+   * <p>
+   * Ends up calling {@link #mmap(int, int)} with
+   * {@code MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_SHARED} as flags.
+   * <p>
+   * Protection will be {@code PROT_READ | PROT_WRITE}.
+   *
+   * @param length
+   *          the length of the mapping, must be greater than 0
+   * @return a new ByteBuffer around the newly {@code mmap()}-ed area,
+   *         never {@code null},
+   *         must be released with {@link #munmap(ByteBuffer)}
+   * @throws IllegalArgumentException
+   *           if {@code length} is not positive
+   * @throws AllocationFailedException
+   *           if {@code mmap()} fails
+   * @see Mman#mmap(int, int)
+   * @see Mman#munmap(ByteBuffer)
+   * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
+   */
   public static ByteBuffer mmap(int length) {
     return mmap(length, MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_SHARED);
   }
 
   /**
-   *
+   * Calls {@code mmap()} to create a virtual memory region and creates a
+   * {@code ByteBuffer} around it.
    * <p>
    * Protection will be {@code PROT_READ | PROT_WRITE}.
    *
    * @param length
+   *          the length of the mapping, must be greater than 0
    * @param flags
    *          ORed arguments from {@link MmapFlags} that control various aspects
    *          of the mapping
-   * @return a new ByteBuffer around the newly {@code mmap()}-ed area, never
-   *         {@code null}
+   * @return a new ByteBuffer around the newly {@code mmap()}-ed area,
+   *         never {@code null},
+   *         must be released with {@link #munmap(ByteBuffer)}
    * @throws IllegalArgumentException
    *           if {@code length} is not positive
    * @throws AllocationFailedException
    *           if {@code mmap()} fails
+   * @see Mman#munmap(ByteBuffer)
    * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
    */
   public static ByteBuffer mmap(int length, int flags) {
@@ -65,6 +91,7 @@ public final class Mman {
    *           if {@code buffer} is {@code null}
    * @throws IllegalArgumentException
    *           if {@code buffer} is not a direct buffer
+   * @see Mman#munmap(ByteBuffer)
    * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
    */
   public static void munmap(ByteBuffer buffer) {
