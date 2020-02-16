@@ -132,6 +132,7 @@
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
         <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
           <mavenExecutorId>forked-path</mavenExecutorId>
           <arguments>-Pdeploy-to-sonatype-oss</arguments>
         </configuration>
