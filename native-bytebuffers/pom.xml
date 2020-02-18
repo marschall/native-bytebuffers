@@ -57,14 +57,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <forkMode>once</forkMode>
-          <!-- target/nar/aioj-core-0.1.0-SNAPSHOT-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni/ -->
-          <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni -Xcheck:jni</argLine>
-        </configuration>
-      </plugin>
-      <plugin>
         <groupId>com.github.maven-nar</groupId>
         <artifactId>nar-maven-plugin</artifactId>
         <extensions>true</extensions>
@@ -98,5 +90,48 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>linux-AMD64</id>
+      <activation>
+        <os>
+          <family>unix</family>
+        </os>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <forkMode>once</forkMode>
+              <!-- target/nar/aioj-core-0.1.0-SNAPSHOT-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni/ -->
+              <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni -Xcheck:jni</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>mac-x86_64</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <forkMode>once</forkMode>
+              <!-- target/nar/native-bytebuffers-0.2.0-SNAPSHOT-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -->
+              <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -Xcheck:jni</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
