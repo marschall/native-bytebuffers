@@ -32,6 +32,7 @@ try {
 }
 ```
 
+For best startup performance it is recommended to extract the `.so` from the JAR and add it to a folder present in the `LD_LIBRARY_PATH` environment variable or the `java.library.path` system property. Otherwise this library will extract the `.so` to a temporary folder the first time it is called.
 
 Why would you want this?
 ------------------------
@@ -57,5 +58,3 @@ This obviously brings all the issues of manual memory management to Java like:
 These issues can crash the JVM.
 
 As this project uses JNI a native library is required. We ship one for Linux AMD64 but for every other platform you have to build it yourself.
-
-For best startup performance it is recommended to extract the `.so` from the JAR and add it to a folder present in the `LD_LIBRARY_PATH` environment variable or the `java.library.path` system property. Otherwise this library will extract the `.so` to a temporary folder the first time it is called.
