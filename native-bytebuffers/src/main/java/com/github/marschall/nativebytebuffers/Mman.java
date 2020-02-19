@@ -118,4 +118,16 @@ public final class Mman {
 
   private static native long getpagesize0();
 
+  /**
+   * Gets the value of the {@code MAP_ANONYMOUS} flag. This is different
+   * on macOS and Linux.
+   * 
+   * @return the value of the {@code MAP_ANONYMOUS} flag
+   */
+  static int getMapAnonymous() {
+    return getMapAnonymous0();
+  }
+
+  private static native int getMapAnonymous0();
+
 }

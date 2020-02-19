@@ -40,7 +40,7 @@ public final class MmapFlags {
    * use of MAP_ANONYMOUS in conjunction with MAP_SHARED is supported on Linux
    * only since kernel 2.4.
    */
-  public static final int MAP_ANONYMOUS = 32;
+  public static final int MAP_ANONYMOUS = Mman.getMapAnonymous();
 
   /**
    * This flag is used for stacks. It indicates to the kernel virtual memory
