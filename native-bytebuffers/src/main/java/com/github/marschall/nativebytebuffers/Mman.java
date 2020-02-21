@@ -19,9 +19,6 @@ public final class Mman {
    * Calls {@code mmap()} to create an anonymous shared virtual memory region
    * and creates a {@code ByteBuffer} around it.
    * <p>
-   * Ends up calling {@link #mmap(int, int)} with
-   * {@code MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_SHARED} as flags.
-   * <p>
    * Protection will be {@code PROT_READ | PROT_WRITE}.
    *
    * @param length
@@ -38,8 +35,19 @@ public final class Mman {
    * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
    */
   public static ByteBuffer mmap(int length) {
-    return mmap(length, MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_SHARED);
+
+    if (length <= 0) {
+      throw new IllegalArgumentException("non postive length: " + length);
+    }
+    ByteBuffer buffer = mmap0(length);
+
+    if (buffer == null) {
+      throw new AllocationFailedException("mmap failed");
+    }
+    return buffer;
   }
+
+  private static native ByteBuffer mmap0(int length);
 
   /**
    * Calls {@code mmap()} to create a virtual memory region and creates a
@@ -66,7 +74,7 @@ public final class Mman {
     if (length <= 0) {
       throw new IllegalArgumentException("non postive length: " + length);
     }
-    ByteBuffer buffer = mmap0(length, flags);
+    ByteBuffer buffer = mmap1(length, flags);
 
     if (buffer == null) {
       throw new AllocationFailedException("mmap failed");
@@ -74,7 +82,7 @@ public final class Mman {
     return buffer;
   }
 
-  private static native ByteBuffer mmap0(int length, int flags);
+  private static native ByteBuffer mmap1(int length, int flags);
 
   /**
    * Calls {@code munmap()} on the contents of the given {@link ByteBuffer}.

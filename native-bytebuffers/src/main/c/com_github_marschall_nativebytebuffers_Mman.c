@@ -29,6 +29,13 @@ int throwJniException(JNIEnv *env, int errorCode, const char *exceptionClassName
 }
 
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
+  (JNIEnv *env, jclass clazz, jint length)
+{
+  jint flags = MAP_SHARED | MAP_ANONYMOUS;
+  return Java_com_github_marschall_nativebytebuffers_Mman_mmap1(env, clazz, length, flags);
+}
+
+JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap1
   (JNIEnv *env, jclass clazz, jint length, jint flags)
 {
   int prot = PROT_READ | PROT_WRITE;

@@ -1,7 +1,8 @@
 package com.github.marschall.nativebytebuffers;
 
 /**
- * Values that may be passed as the flags argument to {@link Mman#mmap(int, int)}.
+ * Values that may be passed as the flags argument to {@link Mman#mmap(int, int)}
+ * on a Linux system.
  */
 public final class MmapFlags {
 
@@ -40,7 +41,7 @@ public final class MmapFlags {
    * use of MAP_ANONYMOUS in conjunction with MAP_SHARED is supported on Linux
    * only since kernel 2.4.
    */
-  public static final int MAP_ANONYMOUS = Mman.getMapAnonymous();
+  public static final int MAP_ANONYMOUS = 32;
 
   /**
    * This flag is used for stacks. It indicates to the kernel virtual memory

@@ -4,8 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.nio.ByteBuffer;
+import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +23,34 @@ class MmanTests {
   void mmapSuccess() {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
+    assertNotNull(buffer);
+    try {
+      assertEquals(pagesize, buffer.capacity());
+    } finally {
+      Mman.munmap(buffer);
+    }
+  }
+
+  @Test
+  void mmapSuccessMacOs() {
+    assumeTrue(isMacOs());
+    int pagesize = Math.toIntExact(Mman.getpagesize());
+    int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS;
+    ByteBuffer buffer = Mman.mmap(pagesize, flags);
+    assertNotNull(buffer);
+    try {
+      assertEquals(pagesize, buffer.capacity());
+    } finally {
+      Mman.munmap(buffer);
+    }
+  }
+
+  @Test
+  void mmapSuccessLinux() {
+    assumeTrue(isLinux());
+    int pagesize = Math.toIntExact(Mman.getpagesize());
+    int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
+    ByteBuffer buffer = Mman.mmap(pagesize, flags);
     assertNotNull(buffer);
     try {
       assertEquals(pagesize, buffer.capacity());
@@ -54,6 +84,14 @@ class MmanTests {
       array[i] = (byte) i;
     }
     return array;
+  }
+  
+  private static boolean isMacOs() {
+    return System.getProperty("os.name").toLowerCase(Locale.US).contains("mac");
+  }
+  
+  private static boolean isLinux() {
+    return System.getProperty("os.name").toLowerCase(Locale.US).contains("linux");
   }
 
 }
