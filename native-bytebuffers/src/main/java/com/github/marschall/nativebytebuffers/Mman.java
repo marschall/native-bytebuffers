@@ -99,6 +99,8 @@ public final class Mman {
    *           if {@code buffer} is {@code null}
    * @throws IllegalArgumentException
    *           if {@code buffer} is not a direct buffer
+   * @throws ReleaseFailedException
+   *           if unmapping fails
    * @see Mman#munmap(ByteBuffer)
    * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
    */
@@ -129,7 +131,7 @@ public final class Mman {
   /**
    * Gets the value of the {@code MAP_ANONYMOUS} flag. This is different
    * on macOS and Linux.
-   * 
+   *
    * @return the value of the {@code MAP_ANONYMOUS} flag
    */
   static int getMapAnonymous() {
