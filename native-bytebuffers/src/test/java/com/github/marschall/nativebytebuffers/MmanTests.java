@@ -26,6 +26,8 @@ class MmanTests {
     assertNotNull(buffer);
     try {
       assertEquals(pagesize, buffer.capacity());
+      assertEquals(0, buffer.position());
+      assertEquals(pagesize, buffer.limit());
     } finally {
       Mman.munmap(buffer);
     }
@@ -85,11 +87,11 @@ class MmanTests {
     }
     return array;
   }
-  
+
   private static boolean isMacOs() {
     return System.getProperty("os.name").toLowerCase(Locale.US).contains("mac");
   }
-  
+
   private static boolean isLinux() {
     return System.getProperty("os.name").toLowerCase(Locale.US).contains("linux");
   }

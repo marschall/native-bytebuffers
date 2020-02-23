@@ -5,28 +5,9 @@
 
 #include <jni.h>
 
+#include "jniUtil.h"
 #include "com_github_marschall_nativebytebuffers_Mman.h"
 
-int throwJniException(JNIEnv *env, int errorCode, const char *exceptionClassName)
-{ 
-  char message[256];
-  int messageSuccess = strerror_r(errorCode, message, sizeof(message));
-  if (messageSuccess != 0)
-  {
-    return -1;
-  }
-
-  jclass exceptionClass = (*env)->FindClass(env, exceptionClassName);
-  if (exceptionClass == NULL)
-  {
-     // no need to call DeleteLocalRef because it's null
-     return -1;
-  }
-
-  int success = (*env)->ThrowNew(env, exceptionClass, message);
-  (*env)->DeleteLocalRef(env, exceptionClass); // not strictly necessary
-  return success;
-}
 
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
   (JNIEnv *env, jclass clazz, jint length)
@@ -48,8 +29,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap1
   }
   else
   {
-    int errorCode = errno;
-    throwJniException(env, errorCode, "com/github/marschall/nativebytebuffers/AllocationFailedException");
+    throwJniException(env, errno, ALLOCATION_FAILED_EXCEPTION);
     return NULL;
   }
 }
@@ -66,8 +46,7 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
       int success = munmap(addr, capatcity);
       if (success != 0)
       {
-        int errorCode = errno;
-        throwJniException(env, errorCode, "com/github/marschall/nativebytebuffers/ReleaseFailedException");
+        throwJniException(env, errno, "com/github/marschall/nativebytebuffers/ReleaseFailedException");
       }
     }
   }
