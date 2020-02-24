@@ -1,18 +1,18 @@
 package com.github.marschall.nativebytebuffers;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.nio.ByteBuffer;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class StdlibTest {
+class StdlibTests {
 
   @Test
-  public void mallocSuccess() {
+  void mallocSuccess() {
     int size = 512;
     ByteBuffer buffer = Stdlib.malloc(size);
     assertNotNull(buffer);
@@ -28,17 +28,17 @@ public class StdlibTest {
   }
 
   @Test
-  public void mallocNegative() {
+  void mallocNegative() {
     assertThrows(IllegalArgumentException.class, () -> Stdlib.malloc(-512));
   }
 
   @Test
-  public void mallocZero() {
+  void mallocZero() {
     assertThrows(IllegalArgumentException.class, () -> Stdlib.malloc(0));
   }
 
   @Test
-  public void mallocWriteAndReadContents() {
+  void mallocWriteAndReadContents() {
     ByteBuffer buffer = Stdlib.malloc(16);
     assertNotNull(buffer);
     try {
@@ -55,7 +55,7 @@ public class StdlibTest {
   }
 
   @Test
-  public void callocSuccess() {
+  void callocSuccess() {
     int size = 512;
     ByteBuffer buffer = Stdlib.calloc(size);
     assertNotNull(buffer);
@@ -74,7 +74,7 @@ public class StdlibTest {
   }
 
   @Test
-  public void aligned_allocSuccess() {
+  void aligned_allocSuccess() {
     int size = 4096;
     ByteBuffer buffer = Stdlib.aligned_alloc(size, size);
     assertNotNull(buffer);

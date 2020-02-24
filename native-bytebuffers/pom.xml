@@ -11,9 +11,13 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
     </dependency>
   </dependencies>
 
@@ -55,6 +59,7 @@
       <plugin>
         <groupId>com.github.maven-nar</groupId>
         <artifactId>nar-maven-plugin</artifactId>
+        <extensions>true</extensions>
         <configuration>
           <java>
             <include>true</include>
@@ -81,26 +86,52 @@
             </goals>
             <phase>compile</phase>
           </execution>
-          <execution>
-            <id>nar-integration-test</id>
-            <goals>
-              <goal>nar-integration-test</goal>
-            </goals>
-            <phase>integration-test</phase>
-            <configuration>
-              <forkMode>once</forkMode>
-              <argLine>-Xcheck:jni</argLine>
-            </configuration>
-          </execution>
         </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>linux-AMD64</id>
+      <activation>
+        <os>
+          <family>unix</family>
+        </os>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <forkMode>once</forkMode>
+              <!-- target/nar/aioj-core-0.1.0-SNAPSHOT-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni/ -->
+              <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni -Xcheck:jni</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>mac-x86_64</id>
+      <activation>
+        <os>
+          <family>mac</family>
+        </os>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <forkMode>once</forkMode>
+              <!-- target/nar/native-bytebuffers-0.2.0-SNAPSHOT-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -->
+              <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -Xcheck:jni</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>

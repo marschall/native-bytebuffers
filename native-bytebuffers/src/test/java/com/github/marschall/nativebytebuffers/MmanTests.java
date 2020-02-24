@@ -1,26 +1,26 @@
 package com.github.marschall.nativebytebuffers;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.nio.ByteBuffer;
 import java.util.Locale;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class MmanTest {
+class MmanTests {
 
   @Test
-  public void getpagesize() {
+  void getpagesize() {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     assertTrue(pagesize > 0);
   }
 
   @Test
-  public void mmapSuccess() {
+  void mmapSuccess() {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
     assertNotNull(buffer);
@@ -34,7 +34,7 @@ public class MmanTest {
   }
 
   @Test
-  public void mmapSuccessMacOs() {
+  void mmapSuccessMacOs() {
     assumeTrue(isMacOs());
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS;
@@ -48,7 +48,7 @@ public class MmanTest {
   }
 
   @Test
-  public void mmapSuccessLinux() {
+  void mmapSuccessLinux() {
     assumeTrue(isLinux());
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
@@ -62,7 +62,7 @@ public class MmanTest {
   }
 
   @Test
-  public void writeAndReadContents() {
+  void writeAndReadContents() {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
     assertNotNull(buffer);
