@@ -38,7 +38,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_cal
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_aligned_1alloc0
   (JNIEnv *env, jclass clazz, jint alignment, jint size)
 {
-  void *addr = aligned_alloc(size, sizeof(int8_t));
+  void *addr = aligned_alloc(alignment, size);
   if (addr)
   {
     return (*env)->NewDirectByteBuffer(env, addr, size);

@@ -75,8 +75,9 @@ class StdlibTests {
 
   @Test
   void aligned_allocSuccess() {
-    int size = 4096;
-    ByteBuffer buffer = Stdlib.aligned_alloc(size, size);
+    int alignment = 1024;
+    int size = alignment * 8;
+    ByteBuffer buffer = Stdlib.aligned_alloc(alignment, size);
     assertNotNull(buffer);
 
     try {
