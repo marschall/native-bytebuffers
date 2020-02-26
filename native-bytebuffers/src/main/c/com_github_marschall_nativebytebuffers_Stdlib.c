@@ -45,7 +45,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_ali
   }
   else
   {
-    throwJniException(env, errno, ALLOCATION_FAILED_EXCEPTION);
+    throwJniExceptionWithErrno(env, errno, ALLOCATION_FAILED_EXCEPTION);
     return NULL;
   }
 }
@@ -57,5 +57,9 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_free0
   if (addr)
   {
     free(addr);
+  }
+  else
+  {
+    throwJniExceptionWithMessage(env, "could not get buffer address", RELEASE_FAILED_EXCEPTION);
   }
 }

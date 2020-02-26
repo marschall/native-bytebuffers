@@ -29,7 +29,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap1
   }
   else
   {
-    throwJniException(env, errno, ALLOCATION_FAILED_EXCEPTION);
+    throwJniExceptionWithErrno(env, errno, ALLOCATION_FAILED_EXCEPTION);
     return NULL;
   }
 }
@@ -46,9 +46,17 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
       int success = munmap(addr, capatcity);
       if (success != 0)
       {
-        throwJniException(env, errno, "com/github/marschall/nativebytebuffers/ReleaseFailedException");
+        throwJniExceptionWithErrno(env, errno, RELEASE_FAILED_EXCEPTION);
       }
     }
+    else
+    {
+      throwJniExceptionWithMessage(env, "could not get buffer address", RELEASE_FAILED_EXCEPTION);
+    }
+  }
+  else
+  {
+    throwJniExceptionWithMessage(env, "could not get buffer capacity", RELEASE_FAILED_EXCEPTION);
   }
 }
 
