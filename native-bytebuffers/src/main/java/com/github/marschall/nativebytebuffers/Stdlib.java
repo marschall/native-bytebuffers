@@ -79,12 +79,16 @@ public final class Stdlib {
   /**
    * Calls {@code calloc()} and wraps the result in a {@link ByteBuffer}
    *
+   * @param alignment
+   *          the alignment in bytes,
+   *          must bet power of 2 and least as large as {@code sizeof(void *)}
    * @param size
-   *          the number of bytes to allocate, must be positive, {@code int}
-   *          because {@link ByteBuffer} only supports {@code int} indices
+   *          the number of bytes to allocate, must be positive,
+   *           an integral multiple of {@code alignment}
+   *          {@code int} because {@link ByteBuffer} only supports {@code int} indices
    * @return the new buffer,
    *         never {@code null},
-   *         the content is 0 as per {@code calloc()} contract,
+   *         the content is uninitialized as per {@code aligned_alloc()} contract,
    *         must be released with {@link #free(ByteBuffer)}
    * @throws AllocationFailedException
    *           if {@code aligned_alloc} returns {@code NULL}
