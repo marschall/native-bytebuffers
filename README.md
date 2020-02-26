@@ -40,7 +40,7 @@ try {
 
 For best startup performance it is recommended to extract the `.so` from the JAR and add it to a folder present in the `LD_LIBRARY_PATH` environment variable or the `java.library.path` system property. Otherwise this library will extract the `.so` to a temporary folder the first time it is called.
 
-This library has been tested on Linux x86-64 and macOS x86-64.
+This library has been tested on Linux AMD64 and macOS x86-64.
 
 It should be possible to get it to build on Linux AArch64 by simply adding a Maven profile for it.
 
