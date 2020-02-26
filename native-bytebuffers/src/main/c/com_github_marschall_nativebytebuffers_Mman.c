@@ -57,9 +57,3 @@ JNIEXPORT jlong JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getpage
 {
   return sysconf(_SC_PAGESIZE);
 }
-
-JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getMapAnonymous0
-  (JNIEnv *env, jclass clazz)
-{
-  return MAP_ANONYMOUS;
-}
