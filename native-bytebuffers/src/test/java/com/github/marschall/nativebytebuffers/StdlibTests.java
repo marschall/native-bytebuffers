@@ -19,8 +19,8 @@ class StdlibTests {
 
     try {
       assertEquals(size, buffer.capacity());
-      assertEquals(0, buffer.position());
-      assertEquals(size, buffer.limit());
+
+      ByteBufferAssertions.assertReadableAndWritable(buffer);
     } finally {
       Stdlib.free(buffer);
     }
@@ -39,16 +39,13 @@ class StdlibTests {
 
   @Test
   void mallocWriteAndReadContents() {
-    ByteBuffer buffer = Stdlib.malloc(16);
+    int size = 16;
+    ByteBuffer buffer = Stdlib.malloc(size);
     assertNotNull(buffer);
     try {
-      byte[] written = new byte[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 0xA, 0xB, 0xC, 0xD, 0xE};
-      buffer.put(written);
-      buffer.flip();
+      assertEquals(size, buffer.capacity());
 
-      byte[] read = new byte[16];
-      buffer.get(read);
-      assertArrayEquals(written, read);
+      ByteBufferAssertions.assertReadableAndWritable(buffer);
     } finally {
       Stdlib.free(buffer);
     }
@@ -67,6 +64,11 @@ class StdlibTests {
       for (int i = 0; i < size; i++) {
         assertEquals(0, buffer.get());
       }
+
+      buffer.clear();
+      assertEquals(size, buffer.capacity());
+
+      ByteBufferAssertions.assertReadableAndWritable(buffer);
     } finally {
       Stdlib.free(buffer);
     }
@@ -82,12 +84,11 @@ class StdlibTests {
 
     try {
       assertEquals(size, buffer.capacity());
-      assertEquals(0, buffer.position());
-      assertEquals(size, buffer.limit());
+
+      ByteBufferAssertions.assertReadableAndWritable(buffer);
     } finally {
       Stdlib.free(buffer);
     }
-
   }
 
 }
