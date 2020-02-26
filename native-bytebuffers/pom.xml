@@ -96,7 +96,8 @@
       <id>linux-AMD64</id>
       <activation>
         <os>
-          <family>unix</family>
+          <name>Linux</name>
+          <arch>x86_64</arch>
         </os>
       </activation>
       <build>
@@ -117,6 +118,7 @@
       <activation>
         <os>
           <family>mac</family>
+          <arch>x86_64</arch>
         </os>
       </activation>
       <build>

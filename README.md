@@ -42,6 +42,8 @@ For best startup performance it is recommended to extract the `.so` from the JAR
 
 This library has been tested on Linux x86-64 and macOS x86-64.
 
+It should be possible to get it to build on Linux AArch64 by simply adding a Maven profile for it.
+
 Why would you want this?
 ------------------------
 
