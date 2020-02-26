@@ -48,6 +48,20 @@ class MmanTests {
   }
 
   @Test
+  void mmapSuccessMacOsSuperpage() {
+    assumeTrue(isMacOs());
+    int size = 2 * 1024 * 1024;
+    int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS | MmapFlagsMacOs.VM_FLAGS_SUPERPAGE_SIZE_2MB;
+    ByteBuffer buffer = Mman.mmap(size, flags);
+    assertNotNull(buffer);
+    try {
+      assertEquals(size, buffer.capacity());
+    } finally {
+      Mman.munmap(buffer);
+    }
+  }
+
+  @Test
   void mmapSuccessLinux() {
     assumeTrue(isLinux());
     int pagesize = Math.toIntExact(Mman.getpagesize());

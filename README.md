@@ -7,6 +7,7 @@ ByteBuffers that are allocated and released directly with:
 * `calloc` and `free`
 * `aglined_alloc` and `free`
 * `mmap` and `munmap`
+  * superpage support on macOS
 
 Usage
 -----
