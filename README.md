@@ -15,7 +15,7 @@ Usage
 ```xml
 <groupId>com.github.marschall</groupId>
 <artifactId>native-bytebuffers</artifactId>
-<version>0.2.0</version>
+<version>0.3.3</version>
 ```
 
 ```java
