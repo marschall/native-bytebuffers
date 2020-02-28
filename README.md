@@ -44,6 +44,8 @@ This library has been tested on Linux AMD64 and macOS x86-64.
 
 It should be possible to get it to build on Linux AArch64 by simply adding a Maven profile for it.
 
+It should be possible to port it other Unix like *BSD.
+
 Why would you want this?
 ------------------------
 
