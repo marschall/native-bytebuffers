@@ -22,7 +22,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap1
   int prot = PROT_READ | PROT_WRITE;
   int fd = -1;
   off_t offset = 0;
-  void *addr = mmap(NULL, length, prot, flags, fd, offset);
+  void *addr = mmap(NULL, (size_t) length, prot, flags, fd, offset);
   if (addr != MAP_FAILED)
   {
     return (*env)->NewDirectByteBuffer(env, addr, length);
@@ -43,7 +43,7 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
     void *addr = (*env)->GetDirectBufferAddress(env, buf);
     if (addr)
     {
-      int success = munmap(addr, capatcity);
+      int success = munmap(addr, (size_t) capatcity);
       if (success != 0)
       {
         throwJniExceptionWithErrno(env, errno, RELEASE_FAILED_EXCEPTION);
