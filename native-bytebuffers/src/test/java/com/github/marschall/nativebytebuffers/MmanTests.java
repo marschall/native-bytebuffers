@@ -81,6 +81,24 @@ class MmanTests {
   }
 
   @Test
+  void mmapSuccessLinuxHugeTlb() {
+    assumeTrue(isLinux());
+    int size = 2 * 1024 * 1024;
+    int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_HUGETLB | MmapFlags.MAP_HUGE_2MB;
+//    int size = 1 * 1024 * 1024 * 1024;
+//    int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_HUGETLB | MmapFlags.MAP_HUGE_1GB;
+    ByteBuffer buffer = Mman.mmap(size, flags);
+    assertNotNull(buffer);
+    try {
+      assertEquals(size, buffer.capacity());
+
+      ByteBufferAssertions.assertReadableAndWritable(buffer);
+    } finally {
+      Mman.munmap(buffer);
+    }
+  }
+
+  @Test
   void writeAndReadContents() {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
