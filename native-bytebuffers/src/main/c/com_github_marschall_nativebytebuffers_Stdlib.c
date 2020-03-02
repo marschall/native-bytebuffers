@@ -10,7 +10,7 @@
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_malloc0
   (JNIEnv *env, jclass clazz, jint size)
 {
-  void *addr = malloc(size);
+  void *addr = malloc((size_t) size);
   if (addr)
   {
     return (*env)->NewDirectByteBuffer(env, addr, size);
@@ -24,7 +24,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_mal
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_calloc0
   (JNIEnv *env, jclass clazz, jint size)
 {
-  void *addr = calloc(size, sizeof(int8_t));
+  void *addr = calloc((size_t) size, sizeof(int8_t));
   if (addr)
   {
     return (*env)->NewDirectByteBuffer(env, addr, size);
@@ -38,7 +38,7 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_cal
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Stdlib_aligned_1alloc0
   (JNIEnv *env, jclass clazz, jint alignment, jint size)
 {
-  void *addr = aligned_alloc(alignment, size);
+  void *addr = aligned_alloc((size_t) alignment, (size_t) size);
   if (addr)
   {
     return (*env)->NewDirectByteBuffer(env, addr, size);
