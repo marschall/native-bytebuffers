@@ -6,6 +6,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.TimeValue;
 
 public class JmhMain {
 
@@ -16,15 +17,18 @@ public class JmhMain {
    * @throws RunnerException  if something goes wrong during execution
    */
   public static void main(String[] args) throws RunnerException {
+    int threads = args.length > 0 ? Integer.parseInt(args[0]) : 1;
     Options options = new OptionsBuilder()
             .include(JmhMain.class.getPackage().getName() + ".*")
-            .jvmArgs("-Xmx4g", "-XX:MaxDirectMemorySize=512M")
+            .jvmArgs("-Xmx4g", "-XX:MaxDirectMemorySize=512M", "--add-modules", "jdk.incubator.foreign")
             .warmupIterations(5)
+            .warmupTime(TimeValue.seconds(1L))
             .measurementIterations(5)
+            .measurementTime(TimeValue.seconds(1L))
             .forks(3)
             .resultFormat(TEXT)
-//            .threads(Integer.parseInt(args[0]))
-            .output("results.txt")
+            .threads(threads)
+            .output("results-threads-" + threads + ".txt")
             .build();
     new Runner(options).run();
   }

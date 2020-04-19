@@ -13,13 +13,16 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
 
 import com.github.marschall.nativebytebuffers.Mman;
+import com.github.marschall.nativebytebuffers.MmapFlags;
 
-@BenchmarkMode(Mode.Throughput)
+import jdk.incubator.foreign.MemorySegment;
+
+@BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 @State(Scope.Benchmark)
 public class LargeAllocationBenchmarks {
 
-  @Param({"4096", "1048576", "8388608"})
+  @Param({"2097152", "16777216"})
   public int allocationSize;
 
   @Benchmark
@@ -29,9 +32,17 @@ public class LargeAllocationBenchmarks {
 
   @Benchmark
   public void mmap(Blackhole blackhole) {
-    ByteBuffer buffer = Mman.mmap(this.allocationSize);
+    int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_HUGETLB | MmapFlags.MAP_HUGE_2MB;
+    ByteBuffer buffer = Mman.mmap(this.allocationSize, flags);
     blackhole.consume(buffer);
     Mman.munmap(buffer);
+  }
+
+  @Benchmark
+  public void allocateNative(Blackhole blackhole) {
+    try (MemorySegment segment = MemorySegment.allocateNative(this.allocationSize)) {
+      blackhole.consume(segment);
+    }
   }
 
 }

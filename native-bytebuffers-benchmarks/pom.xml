@@ -29,6 +29,15 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
+          <release>14</release>
+          <!-- <compilerArg>add-modules jdk.incubator.foreign</compilerArg> -->
+          <compilerArgs>
+            <arg>--add-modules</arg>
+            <arg>jdk.incubator.foreign</arg>
+          </compilerArgs>
+          <!-- without forking compilation happens in the same process, so no arguments are applied -->
+          <fork>true</fork>
+          <!-- <compilerArgument>add-modules jdk.incubator.foreign</compilerArgument> -->
           <annotationProcessorPaths>
             <annotationProcessorPath>
               <groupId>org.openjdk.jmh</groupId>
@@ -36,6 +45,13 @@
               <version>${jmh.version}</version>
             </annotationProcessorPath>
           </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+          <additionalOptions>--add-modules jdk.incubator.foreign</additionalOptions>
         </configuration>
       </plugin>
       <plugin>
