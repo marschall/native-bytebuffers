@@ -1,0 +1,1127 @@
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateDirect
+# Parameters: (allocationSize = 2097152)
+
+# Run progress: 0.00% complete, ETA 00:09:00
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 615.816 ±(99.9%) 340.126 us/op
+# Warmup Iteration   2: 578.145 ±(99.9%) 474.698 us/op
+# Warmup Iteration   3: 578.205 ±(99.9%) 370.766 us/op
+# Warmup Iteration   4: 581.234 ±(99.9%) 298.482 us/op
+# Warmup Iteration   5: 569.328 ±(99.9%) 197.346 us/op
+Iteration   1: 567.112 ±(99.9%) 241.856 us/op
+Iteration   2: 577.140 ±(99.9%) 473.417 us/op
+Iteration   3: 571.331 ±(99.9%) 364.987 us/op
+Iteration   4: 568.700 ±(99.9%) 256.699 us/op
+Iteration   5: 573.556 ±(99.9%) 332.964 us/op
+
+# Run progress: 1.85% complete, ETA 00:09:05
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 600.711 ±(99.9%) 201.088 us/op
+# Warmup Iteration   2: 567.888 ±(99.9%) 141.313 us/op
+# Warmup Iteration   3: 567.275 ±(99.9%) 296.700 us/op
+# Warmup Iteration   4: 574.914 ±(99.9%) 178.075 us/op
+# Warmup Iteration   5: 576.901 ±(99.9%) 336.068 us/op
+Iteration   1: 570.750 ±(99.9%) 261.372 us/op
+Iteration   2: 569.778 ±(99.9%) 241.167 us/op
+Iteration   3: 572.348 ±(99.9%) 76.314 us/op
+Iteration   4: 566.529 ±(99.9%) 38.647 us/op
+Iteration   5: 568.224 ±(99.9%) 113.847 us/op
+
+# Run progress: 3.70% complete, ETA 00:08:54
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 612.926 ±(99.9%) 202.292 us/op
+# Warmup Iteration   2: 571.530 ±(99.9%) 414.543 us/op
+# Warmup Iteration   3: 571.367 ±(99.9%) 114.103 us/op
+# Warmup Iteration   4: 570.402 ±(99.9%) 154.658 us/op
+# Warmup Iteration   5: 580.448 ±(99.9%) 290.081 us/op
+Iteration   1: 577.594 ±(99.9%) 197.919 us/op
+Iteration   2: 569.319 ±(99.9%) 203.340 us/op
+Iteration   3: 568.262 ±(99.9%) 199.670 us/op
+Iteration   4: 572.574 ±(99.9%) 413.877 us/op
+Iteration   5: 569.129 ±(99.9%) 127.934 us/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateDirect":
+  570.823 ±(99.9%) 3.559 us/op [Average]
+  (min, avg, max) = (566.529, 570.823, 577.594), stdev = 3.329
+  CI (99.9%): [567.264, 574.382] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateDirect
+# Parameters: (allocationSize = 16777216)
+
+# Run progress: 5.56% complete, ETA 00:08:44
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 5601.475 ±(99.9%) 6574.351 us/op
+# Warmup Iteration   2: 5046.413 ±(99.9%) 2088.621 us/op
+# Warmup Iteration   3: 5103.469 ±(99.9%) 2693.576 us/op
+# Warmup Iteration   4: 5430.172 ±(99.9%) 4613.694 us/op
+# Warmup Iteration   5: 5089.544 ±(99.9%) 2257.054 us/op
+Iteration   1: 6340.250 ±(99.9%) 7429.014 us/op
+Iteration   2: 5245.607 ±(99.9%) 4425.577 us/op
+Iteration   3: 4983.975 ±(99.9%) 2518.505 us/op
+Iteration   4: 5262.439 ±(99.9%) 7280.907 us/op
+Iteration   5: 5018.177 ±(99.9%) 3004.650 us/op
+
+# Run progress: 7.41% complete, ETA 00:08:34
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 5269.273 ±(99.9%) 1862.421 us/op
+# Warmup Iteration   2: 5113.485 ±(99.9%) 4832.582 us/op
+# Warmup Iteration   3: 5014.063 ±(99.9%) 3414.640 us/op
+# Warmup Iteration   4: 6250.090 ±(99.9%) 6564.313 us/op
+# Warmup Iteration   5: 5058.303 ±(99.9%) 3624.238 us/op
+Iteration   1: 5014.101 ±(99.9%) 4811.192 us/op
+Iteration   2: 5183.511 ±(99.9%) 6089.334 us/op
+Iteration   3: 7349.400 ±(99.9%) 11159.542 us/op
+Iteration   4: 8048.305 ±(99.9%) 7233.365 us/op
+Iteration   5: 5719.659 ±(99.9%) 5291.899 us/op
+
+# Run progress: 9.26% complete, ETA 00:08:25
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 5371.787 ±(99.9%) 3675.688 us/op
+# Warmup Iteration   2: 5095.155 ±(99.9%) 3705.229 us/op
+# Warmup Iteration   3: 5185.430 ±(99.9%) 5680.642 us/op
+# Warmup Iteration   4: 5063.628 ±(99.9%) 1550.063 us/op
+# Warmup Iteration   5: 6035.486 ±(99.9%) 1893.276 us/op
+Iteration   1: 6027.181 ±(99.9%) 1917.926 us/op
+Iteration   2: 5180.083 ±(99.9%) 518.728 us/op
+Iteration   3: 4958.802 ±(99.9%) 2089.809 us/op
+Iteration   4: 4960.753 ±(99.9%) 549.004 us/op
+Iteration   5: 5029.300 ±(99.9%) 1226.106 us/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateDirect":
+  5621.436 ±(99.9%) 1013.740 us/op [Average]
+  (min, avg, max) = (4958.802, 5621.436, 8048.305), stdev = 948.253
+  CI (99.9%): [4607.696, 6635.176] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateNative
+# Parameters: (allocationSize = 2097152)
+
+# Run progress: 11.11% complete, ETA 00:08:16
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 100.569 ±(99.9%) 88.137 us/op
+# Warmup Iteration   2: 97.356 ±(99.9%) 75.102 us/op
+# Warmup Iteration   3: 96.957 ±(99.9%) 77.836 us/op
+# Warmup Iteration   4: 95.578 ±(99.9%) 70.540 us/op
+# Warmup Iteration   5: 96.530 ±(99.9%) 62.295 us/op
+Iteration   1: 96.154 ±(99.9%) 55.835 us/op
+Iteration   2: 96.320 ±(99.9%) 67.659 us/op
+Iteration   3: 95.655 ±(99.9%) 68.909 us/op
+Iteration   4: 96.376 ±(99.9%) 68.937 us/op
+Iteration   5: 96.188 ±(99.9%) 69.178 us/op
+
+# Run progress: 12.96% complete, ETA 00:08:05
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 100.837 ±(99.9%) 92.942 us/op
+# Warmup Iteration   2: 104.215 ±(99.9%) 101.639 us/op
+# Warmup Iteration   3: 104.311 ±(99.9%) 106.115 us/op
+# Warmup Iteration   4: 104.900 ±(99.9%) 110.918 us/op
+# Warmup Iteration   5: 105.025 ±(99.9%) 115.879 us/op
+Iteration   1: 104.654 ±(99.9%) 106.459 us/op
+Iteration   2: 104.495 ±(99.9%) 107.589 us/op
+Iteration   3: 104.504 ±(99.9%) 106.748 us/op
+Iteration   4: 105.341 ±(99.9%) 103.632 us/op
+Iteration   5: 105.502 ±(99.9%) 107.991 us/op
+
+# Run progress: 14.81% complete, ETA 00:07:54
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 106.902 ±(99.9%) 97.780 us/op
+# Warmup Iteration   2: 112.774 ±(99.9%) 137.088 us/op
+# Warmup Iteration   3: 115.400 ±(99.9%) 139.096 us/op
+# Warmup Iteration   4: 114.215 ±(99.9%) 128.407 us/op
+# Warmup Iteration   5: 112.367 ±(99.9%) 130.038 us/op
+Iteration   1: 114.165 ±(99.9%) 131.533 us/op
+Iteration   2: 113.126 ±(99.9%) 138.967 us/op
+Iteration   3: 113.753 ±(99.9%) 140.033 us/op
+Iteration   4: 113.250 ±(99.9%) 138.180 us/op
+Iteration   5: 112.400 ±(99.9%) 132.683 us/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateNative":
+  104.792 ±(99.9%) 7.787 us/op [Average]
+  (min, avg, max) = (95.655, 104.792, 114.165), stdev = 7.284
+  CI (99.9%): [97.005, 112.579] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateNative
+# Parameters: (allocationSize = 16777216)
+
+# Run progress: 16.67% complete, ETA 00:07:43
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3564.929 ±(99.9%) 121.654 us/op
+# Warmup Iteration   2: 3515.526 ±(99.9%) 815.689 us/op
+# Warmup Iteration   3: 3530.356 ±(99.9%) 561.330 us/op
+# Warmup Iteration   4: 3527.932 ±(99.9%) 291.992 us/op
+# Warmup Iteration   5: 3531.198 ±(99.9%) 154.824 us/op
+Iteration   1: 3534.292 ±(99.9%) 195.725 us/op
+Iteration   2: 3530.859 ±(99.9%) 234.140 us/op
+Iteration   3: 3526.721 ±(99.9%) 250.001 us/op
+Iteration   4: 3528.361 ±(99.9%) 234.511 us/op
+Iteration   5: 3529.548 ±(99.9%) 245.491 us/op
+
+# Run progress: 18.52% complete, ETA 00:07:33
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3566.101 ±(99.9%) 298.445 us/op
+# Warmup Iteration   2: 3531.638 ±(99.9%) 547.676 us/op
+# Warmup Iteration   3: 3537.923 ±(99.9%) 439.519 us/op
+# Warmup Iteration   4: 3535.062 ±(99.9%) 486.481 us/op
+# Warmup Iteration   5: 3543.623 ±(99.9%) 490.686 us/op
+Iteration   1: 3535.558 ±(99.9%) 205.196 us/op
+Iteration   2: 3535.349 ±(99.9%) 208.568 us/op
+Iteration   3: 3534.345 ±(99.9%) 493.758 us/op
+Iteration   4: 3537.393 ±(99.9%) 171.385 us/op
+Iteration   5: 3536.173 ±(99.9%) 254.425 us/op
+
+# Run progress: 20.37% complete, ETA 00:07:22
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3570.293 ±(99.9%) 403.717 us/op
+# Warmup Iteration   2: 3529.485 ±(99.9%) 434.217 us/op
+# Warmup Iteration   3: 3534.709 ±(99.9%) 260.282 us/op
+# Warmup Iteration   4: 3579.706 ±(99.9%) 537.605 us/op
+# Warmup Iteration   5: 3536.820 ±(99.9%) 274.369 us/op
+Iteration   1: 3540.197 ±(99.9%) 300.968 us/op
+Iteration   2: 3529.672 ±(99.9%) 252.001 us/op
+Iteration   3: 3531.060 ±(99.9%) 424.698 us/op
+Iteration   4: 3533.901 ±(99.9%) 271.751 us/op
+Iteration   5: 3533.166 ±(99.9%) 309.701 us/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.allocateNative":
+  3533.106 ±(99.9%) 3.935 us/op [Average]
+  (min, avg, max) = (3526.721, 3533.106, 3540.197), stdev = 3.681
+  CI (99.9%): [3529.172, 3537.041] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.mmap
+# Parameters: (allocationSize = 2097152)
+
+# Run progress: 22.22% complete, ETA 00:07:12
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 7.172 ±(99.9%) 0.502 us/op
+# Warmup Iteration   2: 7.336 ±(99.9%) 0.698 us/op
+# Warmup Iteration   3: 7.394 ±(99.9%) 0.235 us/op
+# Warmup Iteration   4: 7.244 ±(99.9%) 0.300 us/op
+# Warmup Iteration   5: 7.543 ±(99.9%) 0.609 us/op
+Iteration   1: 7.375 ±(99.9%) 0.226 us/op
+Iteration   2: 7.341 ±(99.9%) 0.569 us/op
+Iteration   3: 7.368 ±(99.9%) 0.380 us/op
+Iteration   4: 7.417 ±(99.9%) 0.164 us/op
+Iteration   5: 7.466 ±(99.9%) 0.305 us/op
+
+# Run progress: 24.07% complete, ETA 00:07:01
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 8.466 ±(99.9%) 0.559 us/op
+# Warmup Iteration   2: 7.970 ±(99.9%) 0.319 us/op
+# Warmup Iteration   3: 7.754 ±(99.9%) 0.142 us/op
+# Warmup Iteration   4: 7.816 ±(99.9%) 0.500 us/op
+# Warmup Iteration   5: 7.843 ±(99.9%) 0.632 us/op
+Iteration   1: 7.937 ±(99.9%) 0.892 us/op
+Iteration   2: 7.993 ±(99.9%) 0.756 us/op
+Iteration   3: 7.909 ±(99.9%) 0.497 us/op
+Iteration   4: 8.239 ±(99.9%) 1.603 us/op
+Iteration   5: 7.982 ±(99.9%) 0.775 us/op
+
+# Run progress: 25.93% complete, ETA 00:06:51
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 8.173 ±(99.9%) 1.456 us/op
+# Warmup Iteration   2: 7.887 ±(99.9%) 0.613 us/op
+# Warmup Iteration   3: 7.621 ±(99.9%) 0.761 us/op
+# Warmup Iteration   4: 7.655 ±(99.9%) 0.647 us/op
+# Warmup Iteration   5: 7.661 ±(99.9%) 0.246 us/op
+Iteration   1: 7.782 ±(99.9%) 0.642 us/op
+Iteration   2: 7.826 ±(99.9%) 0.414 us/op
+Iteration   3: 7.943 ±(99.9%) 0.259 us/op
+Iteration   4: 7.799 ±(99.9%) 0.309 us/op
+Iteration   5: 7.845 ±(99.9%) 0.421 us/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.mmap":
+  7.748 ±(99.9%) 0.301 us/op [Average]
+  (min, avg, max) = (7.341, 7.748, 8.239), stdev = 0.282
+  CI (99.9%): [7.447, 8.050] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.mmap
+# Parameters: (allocationSize = 16777216)
+
+# Run progress: 27.78% complete, ETA 00:06:40
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3499.330 ±(99.9%) 444.255 us/op
+# Warmup Iteration   2: 3491.445 ±(99.9%) 476.469 us/op
+# Warmup Iteration   3: 3527.832 ±(99.9%) 247.744 us/op
+# Warmup Iteration   4: 3539.535 ±(99.9%) 389.382 us/op
+# Warmup Iteration   5: 3500.889 ±(99.9%) 228.509 us/op
+Iteration   1: 3505.185 ±(99.9%) 509.052 us/op
+Iteration   2: 3474.710 ±(99.9%) 195.224 us/op
+Iteration   3: 3482.221 ±(99.9%) 189.704 us/op
+Iteration   4: 3476.864 ±(99.9%) 609.343 us/op
+Iteration   5: 3470.530 ±(99.9%) 239.203 us/op
+
+# Run progress: 29.63% complete, ETA 00:06:30
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3477.855 ±(99.9%) 502.595 us/op
+# Warmup Iteration   2: 3541.868 ±(99.9%) 170.239 us/op
+# Warmup Iteration   3: 3507.713 ±(99.9%) 122.659 us/op
+# Warmup Iteration   4: 3511.995 ±(99.9%) 654.336 us/op
+# Warmup Iteration   5: 3526.198 ±(99.9%) 410.601 us/op
+Iteration   1: 3533.006 ±(99.9%) 174.990 us/op
+Iteration   2: 3525.065 ±(99.9%) 86.024 us/op
+Iteration   3: 3499.719 ±(99.9%) 303.940 us/op
+Iteration   4: 3445.680 ±(99.9%) 668.032 us/op
+Iteration   5: 3517.772 ±(99.9%) 497.358 us/op
+
+# Run progress: 31.48% complete, ETA 00:06:20
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3526.712 ±(99.9%) 475.851 us/op
+# Warmup Iteration   2: 3474.429 ±(99.9%) 1029.468 us/op
+# Warmup Iteration   3: 3511.749 ±(99.9%) 419.289 us/op
+# Warmup Iteration   4: 3523.606 ±(99.9%) 187.031 us/op
+# Warmup Iteration   5: 3407.188 ±(99.9%) 252.853 us/op
+Iteration   1: 3474.844 ±(99.9%) 341.765 us/op
+Iteration   2: 3457.757 ±(99.9%) 360.979 us/op
+Iteration   3: 3477.271 ±(99.9%) 170.796 us/op
+Iteration   4: 3468.203 ±(99.9%) 410.683 us/op
+Iteration   5: 3441.154 ±(99.9%) 117.990 us/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.LargeAllocationBenchmarks.mmap":
+  3483.332 ±(99.9%) 29.432 us/op [Average]
+  (min, avg, max) = (3441.154, 3483.332, 3533.006), stdev = 27.531
+  CI (99.9%): [3453.900, 3512.764] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateDirect
+# Parameters: (allocationSize = 128)
+
+# Run progress: 33.33% complete, ETA 00:06:10
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 2153.256 ±(99.9%) 460.634 ns/op
+# Warmup Iteration   2: 2544.708 ±(99.9%) 1860.905 ns/op
+# Warmup Iteration   3: 2592.843 ±(99.9%) 1328.687 ns/op
+# Warmup Iteration   4: 22756.381 ±(99.9%) 5360.337 ns/op
+# Warmup Iteration   5: 3259.733 ±(99.9%) 467.664 ns/op
+Iteration   1: 3452.885 ±(99.9%) 400.695 ns/op
+Iteration   2: 3402.318 ±(99.9%) 141.097 ns/op
+Iteration   3: 2804.893 ±(99.9%) 259.438 ns/op
+Iteration   4: 17226.960 ±(99.9%) 4044.606 ns/op
+Iteration   5: 2807.007 ±(99.9%) 229.647 ns/op
+
+# Run progress: 35.19% complete, ETA 00:06:01
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 2201.122 ±(99.9%) 1258.646 ns/op
+# Warmup Iteration   2: 2199.939 ±(99.9%) 1765.488 ns/op
+# Warmup Iteration   3: 2484.807 ±(99.9%) 1450.780 ns/op
+# Warmup Iteration   4: 19935.648 ±(99.9%) 1866.523 ns/op
+# Warmup Iteration   5: 3498.993 ±(99.9%) 722.635 ns/op
+Iteration   1: 3447.108 ±(99.9%) 800.337 ns/op
+Iteration   2: 2925.626 ±(99.9%) 599.109 ns/op
+Iteration   3: 3746.328 ±(99.9%) 302.720 ns/op
+Iteration   4: 7578.490 ±(99.9%) 1751.992 ns/op
+Iteration   5: 2847.403 ±(99.9%) 188.561 ns/op
+
+# Run progress: 37.04% complete, ETA 00:05:54
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 2309.216 ±(99.9%) 764.184 ns/op
+# Warmup Iteration   2: 2128.421 ±(99.9%) 1575.792 ns/op
+# Warmup Iteration   3: 2394.747 ±(99.9%) 1239.780 ns/op
+# Warmup Iteration   4: 17932.690 ±(99.9%) 11458.302 ns/op
+# Warmup Iteration   5: 3389.276 ±(99.9%) 362.600 ns/op
+Iteration   1: 3440.622 ±(99.9%) 487.834 ns/op
+Iteration   2: 3399.668 ±(99.9%) 561.299 ns/op
+Iteration   3: 2850.873 ±(99.9%) 222.754 ns/op
+Iteration   4: 8647.877 ±(99.9%) 1004.300 ns/op
+Iteration   5: 2874.769 ±(99.9%) 294.622 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateDirect":
+  4763.522 ±(99.9%) 4142.791 ns/op [Average]
+  (min, avg, max) = (2804.893, 4763.522, 17226.960), stdev = 3875.170
+  CI (99.9%): [620.731, 8906.313] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateDirect
+# Parameters: (allocationSize = 1024)
+
+# Run progress: 38.89% complete, ETA 00:05:46
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3046.317 ±(99.9%) 203.252 ns/op
+# Warmup Iteration   2: 3559.054 ±(99.9%) 243.162 ns/op
+# Warmup Iteration   3: 4200.905 ±(99.9%) 613.589 ns/op
+# Warmup Iteration   4: 3263.410 ±(99.9%) 129.008 ns/op
+# Warmup Iteration   5: 3622.904 ±(99.9%) 516.541 ns/op
+Iteration   1: 3605.375 ±(99.9%) 532.211 ns/op
+Iteration   2: 3871.648 ±(99.9%) 671.565 ns/op
+Iteration   3: 3798.523 ±(99.9%) 632.356 ns/op
+Iteration   4: 3646.024 ±(99.9%) 353.304 ns/op
+Iteration   5: 3859.914 ±(99.9%) 188.296 ns/op
+
+# Run progress: 40.74% complete, ETA 00:05:35
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3090.798 ±(99.9%) 395.879 ns/op
+# Warmup Iteration   2: 4269.154 ±(99.9%) 500.743 ns/op
+# Warmup Iteration   3: 3846.243 ±(99.9%) 529.332 ns/op
+# Warmup Iteration   4: 3627.374 ±(99.9%) 140.869 ns/op
+# Warmup Iteration   5: 3406.267 ±(99.9%) 287.509 ns/op
+Iteration   1: 3467.546 ±(99.9%) 504.075 ns/op
+Iteration   2: 3848.202 ±(99.9%) 228.900 ns/op
+Iteration   3: 3620.802 ±(99.9%) 386.401 ns/op
+Iteration   4: 3773.891 ±(99.9%) 269.778 ns/op
+Iteration   5: 3358.060 ±(99.9%) 367.250 ns/op
+
+# Run progress: 42.59% complete, ETA 00:05:24
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 3199.147 ±(99.9%) 725.779 ns/op
+# Warmup Iteration   2: 3643.111 ±(99.9%) 489.599 ns/op
+# Warmup Iteration   3: 3426.887 ±(99.9%) 398.477 ns/op
+# Warmup Iteration   4: 3716.532 ±(99.9%) 459.352 ns/op
+# Warmup Iteration   5: 3436.280 ±(99.9%) 227.364 ns/op
+Iteration   1: 3341.572 ±(99.9%) 190.357 ns/op
+Iteration   2: 3534.610 ±(99.9%) 446.868 ns/op
+Iteration   3: 4046.469 ±(99.9%) 305.171 ns/op
+Iteration   4: 3512.136 ±(99.9%) 379.072 ns/op
+Iteration   5: 3353.862 ±(99.9%) 766.743 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateDirect":
+  3642.576 ±(99.9%) 232.605 ns/op [Average]
+  (min, avg, max) = (3341.572, 3642.576, 4046.469), stdev = 217.579
+  CI (99.9%): [3409.970, 3875.181] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateDirect
+# Parameters: (allocationSize = 4096)
+
+# Run progress: 44.44% complete, ETA 00:05:13
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 4096.426 ±(99.9%) 543.227 ns/op
+# Warmup Iteration   2: 3574.453 ±(99.9%) 548.542 ns/op
+# Warmup Iteration   3: 3893.496 ±(99.9%) 370.223 ns/op
+# Warmup Iteration   4: 4130.691 ±(99.9%) 168.467 ns/op
+# Warmup Iteration   5: 4083.170 ±(99.9%) 472.237 ns/op
+Iteration   1: 4035.615 ±(99.9%) 461.771 ns/op
+Iteration   2: 4147.513 ±(99.9%) 447.116 ns/op
+Iteration   3: 4162.749 ±(99.9%) 687.819 ns/op
+Iteration   4: 4322.772 ±(99.9%) 632.642 ns/op
+Iteration   5: 4121.278 ±(99.9%) 608.152 ns/op
+
+# Run progress: 46.30% complete, ETA 00:05:03
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 4047.755 ±(99.9%) 910.420 ns/op
+# Warmup Iteration   2: 3751.404 ±(99.9%) 984.105 ns/op
+# Warmup Iteration   3: 3770.536 ±(99.9%) 808.157 ns/op
+# Warmup Iteration   4: 4061.015 ±(99.9%) 490.294 ns/op
+# Warmup Iteration   5: 3958.133 ±(99.9%) 351.549 ns/op
+Iteration   1: 4341.098 ±(99.9%) 447.983 ns/op
+Iteration   2: 4060.518 ±(99.9%) 1323.392 ns/op
+Iteration   3: 4074.993 ±(99.9%) 506.432 ns/op
+Iteration   4: 4044.876 ±(99.9%) 411.540 ns/op
+Iteration   5: 4153.408 ±(99.9%) 824.012 ns/op
+
+# Run progress: 48.15% complete, ETA 00:04:52
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 4218.369 ±(99.9%) 331.043 ns/op
+# Warmup Iteration   2: 3592.089 ±(99.9%) 793.484 ns/op
+# Warmup Iteration   3: 4094.774 ±(99.9%) 553.012 ns/op
+# Warmup Iteration   4: 4104.585 ±(99.9%) 744.705 ns/op
+# Warmup Iteration   5: 4025.730 ±(99.9%) 453.589 ns/op
+Iteration   1: 3911.933 ±(99.9%) 392.475 ns/op
+Iteration   2: 4261.619 ±(99.9%) 672.191 ns/op
+Iteration   3: 4235.057 ±(99.9%) 335.923 ns/op
+Iteration   4: 4199.202 ±(99.9%) 1395.277 ns/op
+Iteration   5: 4310.097 ±(99.9%) 600.484 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateDirect":
+  4158.849 ±(99.9%) 130.429 ns/op [Average]
+  (min, avg, max) = (3911.933, 4158.849, 4341.098), stdev = 122.004
+  CI (99.9%): [4028.419, 4289.278] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateNative
+# Parameters: (allocationSize = 128)
+
+# Run progress: 50.00% complete, ETA 00:04:41
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 155.422 ±(99.9%) 17.171 ns/op
+# Warmup Iteration   2: 143.307 ±(99.9%) 5.194 ns/op
+# Warmup Iteration   3: 140.606 ±(99.9%) 4.104 ns/op
+# Warmup Iteration   4: 140.366 ±(99.9%) 4.594 ns/op
+# Warmup Iteration   5: 142.115 ±(99.9%) 4.936 ns/op
+Iteration   1: 142.092 ±(99.9%) 6.153 ns/op
+Iteration   2: 141.866 ±(99.9%) 4.680 ns/op
+Iteration   3: 141.279 ±(99.9%) 0.569 ns/op
+Iteration   4: 141.279 ±(99.9%) 0.329 ns/op
+Iteration   5: 141.253 ±(99.9%) 0.810 ns/op
+
+# Run progress: 51.85% complete, ETA 00:04:31
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 155.522 ±(99.9%) 17.251 ns/op
+# Warmup Iteration   2: 143.483 ±(99.9%) 3.697 ns/op
+# Warmup Iteration   3: 141.433 ±(99.9%) 8.489 ns/op
+# Warmup Iteration   4: 140.063 ±(99.9%) 0.168 ns/op
+# Warmup Iteration   5: 139.914 ±(99.9%) 0.176 ns/op
+Iteration   1: 141.503 ±(99.9%) 0.302 ns/op
+Iteration   2: 141.509 ±(99.9%) 0.470 ns/op
+Iteration   3: 142.503 ±(99.9%) 7.567 ns/op
+Iteration   4: 142.251 ±(99.9%) 4.220 ns/op
+Iteration   5: 143.960 ±(99.9%) 14.014 ns/op
+
+# Run progress: 53.70% complete, ETA 00:04:20
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 152.697 ±(99.9%) 1.300 ns/op
+# Warmup Iteration   2: 143.682 ±(99.9%) 3.451 ns/op
+# Warmup Iteration   3: 140.969 ±(99.9%) 5.820 ns/op
+# Warmup Iteration   4: 142.389 ±(99.9%) 9.342 ns/op
+# Warmup Iteration   5: 141.272 ±(99.9%) 6.623 ns/op
+Iteration   1: 142.482 ±(99.9%) 3.964 ns/op
+Iteration   2: 143.948 ±(99.9%) 7.527 ns/op
+Iteration   3: 142.007 ±(99.9%) 4.280 ns/op
+Iteration   4: 145.120 ±(99.9%) 16.114 ns/op
+Iteration   5: 142.483 ±(99.9%) 7.190 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateNative":
+  142.369 ±(99.9%) 1.220 ns/op [Average]
+  (min, avg, max) = (141.253, 142.369, 145.120), stdev = 1.141
+  CI (99.9%): [141.149, 143.589] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateNative
+# Parameters: (allocationSize = 1024)
+
+# Run progress: 55.56% complete, ETA 00:04:10
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 174.731 ±(99.9%) 5.802 ns/op
+# Warmup Iteration   2: 165.137 ±(99.9%) 18.068 ns/op
+# Warmup Iteration   3: 159.610 ±(99.9%) 4.898 ns/op
+# Warmup Iteration   4: 160.323 ±(99.9%) 9.603 ns/op
+# Warmup Iteration   5: 162.145 ±(99.9%) 7.300 ns/op
+Iteration   1: 161.153 ±(99.9%) 5.941 ns/op
+Iteration   2: 160.329 ±(99.9%) 1.089 ns/op
+Iteration   3: 164.000 ±(99.9%) 10.973 ns/op
+Iteration   4: 160.959 ±(99.9%) 5.702 ns/op
+Iteration   5: 162.353 ±(99.9%) 16.241 ns/op
+
+# Run progress: 57.41% complete, ETA 00:03:59
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 174.333 ±(99.9%) 6.767 ns/op
+# Warmup Iteration   2: 163.287 ±(99.9%) 15.306 ns/op
+# Warmup Iteration   3: 159.199 ±(99.9%) 2.992 ns/op
+# Warmup Iteration   4: 160.799 ±(99.9%) 11.744 ns/op
+# Warmup Iteration   5: 160.760 ±(99.9%) 12.355 ns/op
+Iteration   1: 161.782 ±(99.9%) 7.716 ns/op
+Iteration   2: 161.685 ±(99.9%) 6.652 ns/op
+Iteration   3: 162.538 ±(99.9%) 16.222 ns/op
+Iteration   4: 161.276 ±(99.9%) 5.632 ns/op
+Iteration   5: 161.512 ±(99.9%) 6.776 ns/op
+
+# Run progress: 59.26% complete, ETA 00:03:49
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 175.882 ±(99.9%) 9.634 ns/op
+# Warmup Iteration   2: 165.014 ±(99.9%) 12.814 ns/op
+# Warmup Iteration   3: 161.288 ±(99.9%) 10.220 ns/op
+# Warmup Iteration   4: 160.822 ±(99.9%) 7.942 ns/op
+# Warmup Iteration   5: 159.068 ±(99.9%) 0.522 ns/op
+Iteration   1: 160.797 ±(99.9%) 0.466 ns/op
+Iteration   2: 163.019 ±(99.9%) 11.828 ns/op
+Iteration   3: 161.099 ±(99.9%) 2.041 ns/op
+Iteration   4: 160.804 ±(99.9%) 0.978 ns/op
+Iteration   5: 164.006 ±(99.9%) 8.301 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateNative":
+  161.821 ±(99.9%) 1.218 ns/op [Average]
+  (min, avg, max) = (160.329, 161.821, 164.006), stdev = 1.140
+  CI (99.9%): [160.602, 163.039] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateNative
+# Parameters: (allocationSize = 4096)
+
+# Run progress: 61.11% complete, ETA 00:03:38
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 314.927 ±(99.9%) 79.560 ns/op
+# Warmup Iteration   2: 294.235 ±(99.9%) 63.153 ns/op
+# Warmup Iteration   3: 282.601 ±(99.9%) 50.075 ns/op
+# Warmup Iteration   4: 281.208 ±(99.9%) 46.040 ns/op
+# Warmup Iteration   5: 283.336 ±(99.9%) 47.449 ns/op
+Iteration   1: 283.043 ±(99.9%) 47.330 ns/op
+Iteration   2: 283.122 ±(99.9%) 46.280 ns/op
+Iteration   3: 282.597 ±(99.9%) 47.488 ns/op
+Iteration   4: 282.627 ±(99.9%) 47.045 ns/op
+Iteration   5: 284.539 ±(99.9%) 51.034 ns/op
+
+# Run progress: 62.96% complete, ETA 00:03:27
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 313.427 ±(99.9%) 29.357 ns/op
+# Warmup Iteration   2: 288.975 ±(99.9%) 11.901 ns/op
+# Warmup Iteration   3: 282.375 ±(99.9%) 48.959 ns/op
+# Warmup Iteration   4: 287.609 ±(99.9%) 60.964 ns/op
+# Warmup Iteration   5: 282.334 ±(99.9%) 55.566 ns/op
+Iteration   1: 283.568 ±(99.9%) 54.483 ns/op
+Iteration   2: 282.048 ±(99.9%) 53.546 ns/op
+Iteration   3: 282.159 ±(99.9%) 48.398 ns/op
+Iteration   4: 285.383 ±(99.9%) 57.866 ns/op
+Iteration   5: 282.248 ±(99.9%) 48.156 ns/op
+
+# Run progress: 64.81% complete, ETA 00:03:17
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 317.618 ±(99.9%) 51.476 ns/op
+# Warmup Iteration   2: 292.502 ±(99.9%) 9.313 ns/op
+# Warmup Iteration   3: 290.101 ±(99.9%) 16.406 ns/op
+# Warmup Iteration   4: 288.153 ±(99.9%) 9.892 ns/op
+# Warmup Iteration   5: 287.564 ±(99.9%) 10.214 ns/op
+Iteration   1: 291.266 ±(99.9%) 3.857 ns/op
+Iteration   2: 291.458 ±(99.9%) 3.562 ns/op
+Iteration   3: 289.723 ±(99.9%) 8.224 ns/op
+Iteration   4: 291.353 ±(99.9%) 16.245 ns/op
+Iteration   5: 291.546 ±(99.9%) 17.021 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.allocateNative":
+  285.779 ±(99.9%) 4.266 ns/op [Average]
+  (min, avg, max) = (282.048, 285.779, 291.546), stdev = 3.990
+  CI (99.9%): [281.513, 290.044] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.calloc
+# Parameters: (allocationSize = 128)
+
+# Run progress: 66.67% complete, ETA 00:03:07
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 367.408 ±(99.9%) 73.271 ns/op
+# Warmup Iteration   2: 348.967 ±(99.9%) 17.947 ns/op
+# Warmup Iteration   3: 343.428 ±(99.9%) 22.435 ns/op
+# Warmup Iteration   4: 341.635 ±(99.9%) 14.065 ns/op
+# Warmup Iteration   5: 340.683 ±(99.9%) 25.799 ns/op
+Iteration   1: 344.233 ±(99.9%) 28.084 ns/op
+Iteration   2: 344.841 ±(99.9%) 26.930 ns/op
+Iteration   3: 344.202 ±(99.9%) 28.324 ns/op
+Iteration   4: 346.954 ±(99.9%) 22.752 ns/op
+Iteration   5: 349.899 ±(99.9%) 31.354 ns/op
+
+# Run progress: 68.52% complete, ETA 00:02:56
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 370.624 ±(99.9%) 41.804 ns/op
+# Warmup Iteration   2: 352.330 ±(99.9%) 21.797 ns/op
+# Warmup Iteration   3: 344.593 ±(99.9%) 50.765 ns/op
+# Warmup Iteration   4: 346.733 ±(99.9%) 50.517 ns/op
+# Warmup Iteration   5: 346.678 ±(99.9%) 54.542 ns/op
+Iteration   1: 349.072 ±(99.9%) 15.934 ns/op
+Iteration   2: 349.471 ±(99.9%) 41.790 ns/op
+Iteration   3: 353.612 ±(99.9%) 62.610 ns/op
+Iteration   4: 348.099 ±(99.9%) 42.582 ns/op
+Iteration   5: 350.197 ±(99.9%) 49.695 ns/op
+
+# Run progress: 70.37% complete, ETA 00:02:46
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 367.077 ±(99.9%) 77.356 ns/op
+# Warmup Iteration   2: 354.460 ±(99.9%) 55.255 ns/op
+# Warmup Iteration   3: 345.999 ±(99.9%) 72.608 ns/op
+# Warmup Iteration   4: 341.027 ±(99.9%) 42.403 ns/op
+# Warmup Iteration   5: 337.467 ±(99.9%) 46.729 ns/op
+Iteration   1: 344.589 ±(99.9%) 28.420 ns/op
+Iteration   2: 345.233 ±(99.9%) 27.498 ns/op
+Iteration   3: 350.347 ±(99.9%) 48.013 ns/op
+Iteration   4: 347.089 ±(99.9%) 28.020 ns/op
+Iteration   5: 348.265 ±(99.9%) 29.310 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.calloc":
+  347.740 ±(99.9%) 2.964 ns/op [Average]
+  (min, avg, max) = (344.202, 347.740, 353.612), stdev = 2.773
+  CI (99.9%): [344.776, 350.705] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.calloc
+# Parameters: (allocationSize = 1024)
+
+# Run progress: 72.22% complete, ETA 00:02:35
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 386.838 ±(99.9%) 76.340 ns/op
+# Warmup Iteration   2: 364.860 ±(99.9%) 8.839 ns/op
+# Warmup Iteration   3: 360.570 ±(99.9%) 26.028 ns/op
+# Warmup Iteration   4: 356.012 ±(99.9%) 11.248 ns/op
+# Warmup Iteration   5: 359.990 ±(99.9%) 30.480 ns/op
+Iteration   1: 359.972 ±(99.9%) 34.497 ns/op
+Iteration   2: 359.451 ±(99.9%) 31.211 ns/op
+Iteration   3: 359.446 ±(99.9%) 30.238 ns/op
+Iteration   4: 360.027 ±(99.9%) 31.308 ns/op
+Iteration   5: 359.381 ±(99.9%) 30.027 ns/op
+
+# Run progress: 74.07% complete, ETA 00:02:25
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 390.994 ±(99.9%) 131.988 ns/op
+# Warmup Iteration   2: 369.785 ±(99.9%) 159.442 ns/op
+# Warmup Iteration   3: 363.425 ±(99.9%) 148.365 ns/op
+# Warmup Iteration   4: 365.416 ±(99.9%) 159.258 ns/op
+# Warmup Iteration   5: 361.254 ±(99.9%) 151.680 ns/op
+Iteration   1: 360.997 ±(99.9%) 152.885 ns/op
+Iteration   2: 361.082 ±(99.9%) 153.532 ns/op
+Iteration   3: 360.695 ±(99.9%) 153.790 ns/op
+Iteration   4: 362.084 ±(99.9%) 159.658 ns/op
+Iteration   5: 360.617 ±(99.9%) 153.097 ns/op
+
+# Run progress: 75.93% complete, ETA 00:02:14
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 398.942 ±(99.9%) 147.527 ns/op
+# Warmup Iteration   2: 382.040 ±(99.9%) 87.332 ns/op
+# Warmup Iteration   3: 375.553 ±(99.9%) 101.474 ns/op
+# Warmup Iteration   4: 368.788 ±(99.9%) 65.996 ns/op
+# Warmup Iteration   5: 383.467 ±(99.9%) 112.961 ns/op
+Iteration   1: 378.867 ±(99.9%) 79.484 ns/op
+Iteration   2: 381.364 ±(99.9%) 133.335 ns/op
+Iteration   3: 383.553 ±(99.9%) 145.059 ns/op
+Iteration   4: 377.031 ±(99.9%) 78.966 ns/op
+Iteration   5: 380.016 ±(99.9%) 122.637 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.calloc":
+  366.972 ±(99.9%) 10.447 ns/op [Average]
+  (min, avg, max) = (359.381, 366.972, 383.553), stdev = 9.772
+  CI (99.9%): [356.525, 377.420] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.calloc
+# Parameters: (allocationSize = 4096)
+
+# Run progress: 77.78% complete, ETA 00:02:04
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 468.358 ±(99.9%) 279.924 ns/op
+# Warmup Iteration   2: 463.595 ±(99.9%) 196.280 ns/op
+# Warmup Iteration   3: 444.582 ±(99.9%) 168.520 ns/op
+# Warmup Iteration   4: 441.482 ±(99.9%) 149.985 ns/op
+# Warmup Iteration   5: 441.678 ±(99.9%) 148.226 ns/op
+Iteration   1: 450.219 ±(99.9%) 131.324 ns/op
+Iteration   2: 453.281 ±(99.9%) 174.178 ns/op
+Iteration   3: 449.843 ±(99.9%) 120.886 ns/op
+Iteration   4: 449.207 ±(99.9%) 129.838 ns/op
+Iteration   5: 452.143 ±(99.9%) 174.113 ns/op
+
+# Run progress: 79.63% complete, ETA 00:01:54
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 462.772 ±(99.9%) 104.243 ns/op
+# Warmup Iteration   2: 440.118 ±(99.9%) 163.520 ns/op
+# Warmup Iteration   3: 433.936 ±(99.9%) 161.496 ns/op
+# Warmup Iteration   4: 429.748 ±(99.9%) 122.021 ns/op
+# Warmup Iteration   5: 434.404 ±(99.9%) 127.419 ns/op
+Iteration   1: 435.436 ±(99.9%) 128.739 ns/op
+Iteration   2: 437.412 ±(99.9%) 110.084 ns/op
+Iteration   3: 433.362 ±(99.9%) 118.397 ns/op
+Iteration   4: 438.105 ±(99.9%) 97.329 ns/op
+Iteration   5: 433.097 ±(99.9%) 53.990 ns/op
+
+# Run progress: 81.48% complete, ETA 00:01:43
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 479.973 ±(99.9%) 236.097 ns/op
+# Warmup Iteration   2: 459.373 ±(99.9%) 178.932 ns/op
+# Warmup Iteration   3: 444.549 ±(99.9%) 150.381 ns/op
+# Warmup Iteration   4: 445.333 ±(99.9%) 156.831 ns/op
+# Warmup Iteration   5: 448.357 ±(99.9%) 190.435 ns/op
+Iteration   1: 452.286 ±(99.9%) 221.809 ns/op
+Iteration   2: 441.012 ±(99.9%) 177.635 ns/op
+Iteration   3: 444.062 ±(99.9%) 196.488 ns/op
+Iteration   4: 442.144 ±(99.9%) 183.907 ns/op
+Iteration   5: 439.740 ±(99.9%) 181.661 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.calloc":
+  443.423 ±(99.9%) 7.720 ns/op [Average]
+  (min, avg, max) = (433.097, 443.423, 453.281), stdev = 7.222
+  CI (99.9%): [435.703, 451.144] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.malloc
+# Parameters: (allocationSize = 128)
+
+# Run progress: 83.33% complete, ETA 00:01:33
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 302.954 ±(99.9%) 54.998 ns/op
+# Warmup Iteration   2: 282.277 ±(99.9%) 32.222 ns/op
+# Warmup Iteration   3: 276.648 ±(99.9%) 40.958 ns/op
+# Warmup Iteration   4: 274.186 ±(99.9%) 20.237 ns/op
+# Warmup Iteration   5: 281.516 ±(99.9%) 32.984 ns/op
+Iteration   1: 274.996 ±(99.9%) 19.260 ns/op
+Iteration   2: 275.276 ±(99.9%) 19.677 ns/op
+Iteration   3: 274.586 ±(99.9%) 18.763 ns/op
+Iteration   4: 280.191 ±(99.9%) 43.518 ns/op
+Iteration   5: 278.482 ±(99.9%) 22.931 ns/op
+
+# Run progress: 85.19% complete, ETA 00:01:22
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 312.568 ±(99.9%) 17.019 ns/op
+# Warmup Iteration   2: 285.452 ±(99.9%) 29.587 ns/op
+# Warmup Iteration   3: 276.678 ±(99.9%) 12.884 ns/op
+# Warmup Iteration   4: 279.647 ±(99.9%) 21.753 ns/op
+# Warmup Iteration   5: 278.040 ±(99.9%) 14.400 ns/op
+Iteration   1: 282.158 ±(99.9%) 13.484 ns/op
+Iteration   2: 278.479 ±(99.9%) 18.976 ns/op
+Iteration   3: 278.397 ±(99.9%) 18.716 ns/op
+Iteration   4: 278.471 ±(99.9%) 18.863 ns/op
+Iteration   5: 277.926 ±(99.9%) 18.482 ns/op
+
+# Run progress: 87.04% complete, ETA 00:01:12
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 302.846 ±(99.9%) 47.309 ns/op
+# Warmup Iteration   2: 277.245 ±(99.9%) 25.345 ns/op
+# Warmup Iteration   3: 277.978 ±(99.9%) 46.474 ns/op
+# Warmup Iteration   4: 271.180 ±(99.9%) 9.442 ns/op
+# Warmup Iteration   5: 270.908 ±(99.9%) 10.458 ns/op
+Iteration   1: 273.134 ±(99.9%) 20.741 ns/op
+Iteration   2: 272.945 ±(99.9%) 19.611 ns/op
+Iteration   3: 272.945 ±(99.9%) 19.781 ns/op
+Iteration   4: 272.891 ±(99.9%) 21.609 ns/op
+Iteration   5: 281.283 ±(99.9%) 79.922 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.malloc":
+  276.811 ±(99.9%) 3.398 ns/op [Average]
+  (min, avg, max) = (272.891, 276.811, 282.158), stdev = 3.179
+  CI (99.9%): [273.412, 280.209] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.malloc
+# Parameters: (allocationSize = 1024)
+
+# Run progress: 88.89% complete, ETA 00:01:02
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 296.792 ±(99.9%) 9.652 ns/op
+# Warmup Iteration   2: 281.068 ±(99.9%) 38.998 ns/op
+# Warmup Iteration   3: 276.103 ±(99.9%) 39.172 ns/op
+# Warmup Iteration   4: 274.963 ±(99.9%) 33.859 ns/op
+# Warmup Iteration   5: 276.378 ±(99.9%) 49.887 ns/op
+Iteration   1: 274.450 ±(99.9%) 19.737 ns/op
+Iteration   2: 277.227 ±(99.9%) 13.332 ns/op
+Iteration   3: 272.720 ±(99.9%) 11.334 ns/op
+Iteration   4: 271.493 ±(99.9%) 14.880 ns/op
+Iteration   5: 273.462 ±(99.9%) 15.921 ns/op
+
+# Run progress: 90.74% complete, ETA 00:00:51
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 299.778 ±(99.9%) 41.791 ns/op
+# Warmup Iteration   2: 278.532 ±(99.9%) 26.493 ns/op
+# Warmup Iteration   3: 278.813 ±(99.9%) 51.169 ns/op
+# Warmup Iteration   4: 271.876 ±(99.9%) 2.637 ns/op
+# Warmup Iteration   5: 273.494 ±(99.9%) 21.110 ns/op
+Iteration   1: 274.885 ±(99.9%) 16.711 ns/op
+Iteration   2: 279.910 ±(99.9%) 46.666 ns/op
+Iteration   3: 279.993 ±(99.9%) 45.614 ns/op
+Iteration   4: 275.670 ±(99.9%) 18.130 ns/op
+Iteration   5: 274.788 ±(99.9%) 16.240 ns/op
+
+# Run progress: 92.59% complete, ETA 00:00:41
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 302.508 ±(99.9%) 27.582 ns/op
+# Warmup Iteration   2: 281.450 ±(99.9%) 8.787 ns/op
+# Warmup Iteration   3: 272.274 ±(99.9%) 9.838 ns/op
+# Warmup Iteration   4: 272.708 ±(99.9%) 14.247 ns/op
+# Warmup Iteration   5: 272.242 ±(99.9%) 13.080 ns/op
+Iteration   1: 272.404 ±(99.9%) 23.553 ns/op
+Iteration   2: 279.813 ±(99.9%) 44.570 ns/op
+Iteration   3: 275.180 ±(99.9%) 13.294 ns/op
+Iteration   4: 272.481 ±(99.9%) 20.801 ns/op
+Iteration   5: 272.353 ±(99.9%) 18.546 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.malloc":
+  275.122 ±(99.9%) 3.100 ns/op [Average]
+  (min, avg, max) = (271.493, 275.122, 279.993), stdev = 2.900
+  CI (99.9%): [272.022, 278.222] (assumes normal distribution)
+
+
+# JMH version: 1.23
+# VM version: JDK 14, OpenJDK 64-Bit Server VM, 14+36
+# VM invoker: /home/marschall/bin/java/zulu14.27.1-ca-jdk14-linux_x64/bin/java
+# VM options: -Xmx4g -XX:MaxDirectMemorySize=512M --add-modules jdk.incubator.foreign
+# Warmup: 5 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 4 threads, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.malloc
+# Parameters: (allocationSize = 4096)
+
+# Run progress: 94.44% complete, ETA 00:00:31
+# Fork: 1 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 387.249 ±(99.9%) 191.551 ns/op
+# Warmup Iteration   2: 342.806 ±(99.9%) 53.870 ns/op
+# Warmup Iteration   3: 333.687 ±(99.9%) 47.051 ns/op
+# Warmup Iteration   4: 334.183 ±(99.9%) 45.817 ns/op
+# Warmup Iteration   5: 333.669 ±(99.9%) 45.620 ns/op
+Iteration   1: 338.096 ±(99.9%) 38.491 ns/op
+Iteration   2: 342.374 ±(99.9%) 48.428 ns/op
+Iteration   3: 346.158 ±(99.9%) 53.432 ns/op
+Iteration   4: 340.688 ±(99.9%) 54.497 ns/op
+Iteration   5: 338.780 ±(99.9%) 37.165 ns/op
+
+# Run progress: 96.30% complete, ETA 00:00:20
+# Fork: 2 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 360.615 ±(99.9%) 20.953 ns/op
+# Warmup Iteration   2: 336.264 ±(99.9%) 90.346 ns/op
+# Warmup Iteration   3: 329.384 ±(99.9%) 62.998 ns/op
+# Warmup Iteration   4: 330.759 ±(99.9%) 70.882 ns/op
+# Warmup Iteration   5: 329.750 ±(99.9%) 62.478 ns/op
+Iteration   1: 333.716 ±(99.9%) 75.605 ns/op
+Iteration   2: 332.507 ±(99.9%) 71.309 ns/op
+Iteration   3: 332.422 ±(99.9%) 71.996 ns/op
+Iteration   4: 339.356 ±(99.9%) 98.208 ns/op
+Iteration   5: 333.385 ±(99.9%) 67.730 ns/op
+
+# Run progress: 98.15% complete, ETA 00:00:10
+# Fork: 3 of 3
+WARNING: Using incubator modules: jdk.incubator.foreign
+# Warmup Iteration   1: 361.550 ±(99.9%) 123.391 ns/op
+# Warmup Iteration   2: 334.278 ±(99.9%) 55.406 ns/op
+# Warmup Iteration   3: 330.622 ±(99.9%) 57.411 ns/op
+# Warmup Iteration   4: 331.539 ±(99.9%) 58.064 ns/op
+# Warmup Iteration   5: 330.647 ±(99.9%) 57.622 ns/op
+Iteration   1: 338.899 ±(99.9%) 105.619 ns/op
+Iteration   2: 338.849 ±(99.9%) 103.186 ns/op
+Iteration   3: 337.808 ±(99.9%) 87.999 ns/op
+Iteration   4: 345.748 ±(99.9%) 74.037 ns/op
+Iteration   5: 335.395 ±(99.9%) 70.594 ns/op
+
+
+Result "com.github.marschall.nativebytebuffers.benchmarks.SmallAllocationBenchmarks.malloc":
+  338.279 ±(99.9%) 4.638 ns/op [Average]
+  (min, avg, max) = (332.422, 338.279, 346.158), stdev = 4.339
+  CI (99.9%): [333.641, 342.917] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:09:18
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+Benchmark                                 (allocationSize)  Mode  Cnt     Score      Error  Units
+LargeAllocationBenchmarks.allocateDirect           2097152  avgt   15   570.823 ±    3.559  us/op
+LargeAllocationBenchmarks.allocateDirect          16777216  avgt   15  5621.436 ± 1013.740  us/op
+LargeAllocationBenchmarks.allocateNative           2097152  avgt   15   104.792 ±    7.787  us/op
+LargeAllocationBenchmarks.allocateNative          16777216  avgt   15  3533.106 ±    3.935  us/op
+LargeAllocationBenchmarks.mmap                     2097152  avgt   15     7.748 ±    0.301  us/op
+LargeAllocationBenchmarks.mmap                    16777216  avgt   15  3483.332 ±   29.432  us/op
+SmallAllocationBenchmarks.allocateDirect               128  avgt   15  4763.522 ± 4142.791  ns/op
+SmallAllocationBenchmarks.allocateDirect              1024  avgt   15  3642.576 ±  232.605  ns/op
+SmallAllocationBenchmarks.allocateDirect              4096  avgt   15  4158.849 ±  130.429  ns/op
+SmallAllocationBenchmarks.allocateNative               128  avgt   15   142.369 ±    1.220  ns/op
+SmallAllocationBenchmarks.allocateNative              1024  avgt   15   161.821 ±    1.218  ns/op
+SmallAllocationBenchmarks.allocateNative              4096  avgt   15   285.779 ±    4.266  ns/op
+SmallAllocationBenchmarks.calloc                       128  avgt   15   347.740 ±    2.964  ns/op
+SmallAllocationBenchmarks.calloc                      1024  avgt   15   366.972 ±   10.447  ns/op
+SmallAllocationBenchmarks.calloc                      4096  avgt   15   443.423 ±    7.720  ns/op
+SmallAllocationBenchmarks.malloc                       128  avgt   15   276.811 ±    3.398  ns/op
+SmallAllocationBenchmarks.malloc                      1024  avgt   15   275.122 ±    3.100  ns/op
+SmallAllocationBenchmarks.malloc                      4096  avgt   15   338.279 ±    4.638  ns/op
+
+Benchmark result is saved to jmh-result.text
