@@ -21,7 +21,7 @@ import jdk.incubator.foreign.MemorySegment;
 @State(Scope.Benchmark)
 public class SmallAllocationBenchmarks {
 
-  @Param({"1024", "4096", "1048576"})
+  @Param({"128", "1024", "4096"})
   public int allocationSize;
 
   @Benchmark
