@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.nio.ByteBuffer;
-import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 
@@ -34,7 +33,7 @@ class MmanTests {
 
   @Test
   void mmapSuccessMacOs() {
-    assumeTrue(isMacOs());
+    assumeTrue(OperatingSystemAssumptions.isMacOs());
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS;
     ByteBuffer buffer = Mman.mmap(pagesize, flags);
@@ -50,7 +49,7 @@ class MmanTests {
 
   @Test
   void mmapSuccessMacOsSuperpage() {
-    assumeTrue(isMacOs());
+    assumeTrue(OperatingSystemAssumptions.isMacOs());
     int size = 2 * 1024 * 1024;
     int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS | MmapFlagsMacOs.VM_FLAGS_SUPERPAGE_SIZE_2MB;
     ByteBuffer buffer = Mman.mmap(size, flags);
@@ -66,7 +65,7 @@ class MmanTests {
 
   @Test
   void mmapSuccessLinux() {
-    assumeTrue(isLinux());
+    assumeTrue(OperatingSystemAssumptions.isLinux());
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     ByteBuffer buffer = Mman.mmap(pagesize, flags);
@@ -82,7 +81,7 @@ class MmanTests {
 
   @Test
   void mmapSuccessLinuxHugeTlb() {
-    assumeTrue(isLinux());
+    assumeTrue(OperatingSystemAssumptions.isLinux());
     int size = 2 * 1024 * 1024;
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS | MmapFlags.MAP_HUGETLB | MmapFlags.MAP_HUGE_2MB;
 //    int size = 1 * 1024 * 1024 * 1024;
@@ -109,14 +108,6 @@ class MmanTests {
     } finally {
       Mman.munmap(buffer);
     }
-  }
-
-  private static boolean isMacOs() {
-    return System.getProperty("os.name").toLowerCase(Locale.US).contains("mac");
-  }
-
-  private static boolean isLinux() {
-    return System.getProperty("os.name").toLowerCase(Locale.US).contains("linux");
   }
 
 }

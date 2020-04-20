@@ -3,11 +3,71 @@
 #include <string.h>
 #include <unistd.h>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <jni.h>
 
 #include "jniUtil.h"
 #include "com_github_marschall_nativebytebuffers_Mman.h"
 
+#ifdef _WIN32
+
+JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
+  (JNIEnv *env, jclass clazz, jint length)
+{
+  // TODO
+}
+
+JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap1
+  (JNIEnv *env, jclass clazz, jint length, jint flags)
+{
+
+  LPSECURITY_ATTRIBUTES lpFileMappingAttributes = PAGE_READWRITE;
+  LPCSTR                lpName                  = NULL;
+  HANDLE hMapFile = CreateFileMapping(
+         INVALID_HANDLE_VALUE,    // use paging file
+         lpFileMappingAttributes,
+         flags,
+         0,                       // max. object size
+         length,                  // buffer size
+         lpName);                 // name of mapping object
+  if (hMapFile)
+  {
+    DWORD  dwDesiredAccess = FILE_MAP_ALL_ACCESS; // read/write permission
+    void *ptr = MapViewOfFile(hMapFile,
+         dwDesiredAccess,
+         0,
+         0,
+         length);
+     if (ptr)
+     {
+     }
+     else
+     {
+     }
+  }
+  else
+  {
+  }
+}
+
+JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
+  (JNIEnv *env, jclass clazz, jobject buf)
+{
+  // TODO
+  // https://arvid.io/2018/04/02/memory-mapping-on-windows/
+  // https://flylib.com/books/en/4.419.1.116/1/
+}
+
+JNIEXPORT jlong JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getpagesize0
+  (JNIEnv *env, jclass clazz)
+{
+  return -1;
+}
+
+#else
 
 JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap0
   (JNIEnv *env, jclass clazz, jint length)
@@ -65,3 +125,7 @@ JNIEXPORT jlong JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getpage
 {
   return sysconf(_SC_PAGESIZE);
 }
+
+#endif
+
+
