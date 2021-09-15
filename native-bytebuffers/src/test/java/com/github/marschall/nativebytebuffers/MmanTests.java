@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.nio.ByteBuffer;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 class MmanTests {
@@ -107,6 +108,23 @@ class MmanTests {
       ByteBufferAssertions.assertReadableAndWritable(buffer);
     } finally {
       Mman.munmap(buffer);
+    }
+  }
+
+  @Test
+  @Disabled
+  void memfd_create() {
+    int pagesize = Math.toIntExact(Mman.getpagesize());
+    int fd = Mman.memfd_create(this.getClass().getName(), 0); // TODO flags
+    try {
+      ByteBuffer buffer = Mman.mmap(fd, pagesize); // FIXME
+      try {
+        ByteBufferAssertions.assertReadableAndWritable(buffer);
+      } finally {
+        Mman.munmap(buffer);
+      }
+    } finally {
+      Unistd.close(fd);
     }
   }
 

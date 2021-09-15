@@ -113,6 +113,12 @@ public final class Mman {
   }
 
   private static native void munmap0(ByteBuffer buffer);
+  
+  public static int memfd_create(String name, int flags) {
+    return memfd_create(name, flags);
+  }
+  
+  private static native int memfd_create0(String name, int flags);
 
   /**
    * Returns the number of bytes in a memory page,
