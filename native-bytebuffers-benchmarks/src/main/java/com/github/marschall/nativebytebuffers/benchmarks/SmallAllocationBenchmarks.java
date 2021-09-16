@@ -15,6 +15,7 @@ import org.openjdk.jmh.infra.Blackhole;
 import com.github.marschall.nativebytebuffers.Stdlib;
 
 import jdk.incubator.foreign.MemorySegment;
+import jdk.incubator.foreign.ResourceScope;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -45,7 +46,8 @@ public class SmallAllocationBenchmarks {
 
   @Benchmark
   public void allocateNative(Blackhole blackhole) {
-    try (MemorySegment segment = MemorySegment.allocateNative(this.allocationSize)) {
+    try (ResourceScope scope = ResourceScope.newConfinedScope()) {
+      MemorySegment segment = MemorySegment.allocateNative(this.allocationSize, scope);
       blackhole.consume(segment);
     }
   }
