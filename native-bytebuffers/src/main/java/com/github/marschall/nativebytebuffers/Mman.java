@@ -33,7 +33,7 @@ public final class Mman {
    *           if {@code mmap()} fails
    * @see Mman#mmap(int, int)
    * @see Mman#munmap(ByteBuffer)
-   * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
+   * @see <a href="http://man7.org/linux/man-pages/man2/mmap.2.html">MMAP(2)</a>
    */
   public static ByteBuffer mmap(int length) {
 
@@ -69,7 +69,7 @@ public final class Mman {
    * @throws AllocationFailedException
    *           if {@code mmap()} fails
    * @see Mman#munmap(ByteBuffer)
-   * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
+   * @see <a href="http://man7.org/linux/man-pages/man2/mmap.2.html">MMAP(2)</a>
    */
   public static ByteBuffer mmap(int length, int flags) {
     if (length <= 0) {
@@ -103,7 +103,7 @@ public final class Mman {
    * @throws ReleaseFailedException
    *           if unmapping fails
    * @see Mman#munmap(ByteBuffer)
-   * @see <a href="MMAP(2)">http://man7.org/linux/man-pages/man2/mmap.2.html</a>
+   * @see <a href="http://man7.org/linux/man-pages/man2/mmap.2.html">MMAP(2)</a>
    */
   public static void munmap(ByteBuffer buffer) {
     Objects.requireNonNull(buffer, "buffer");
@@ -153,7 +153,7 @@ public final class Mman {
    * file mapping performed by {@link Mman#mmap(int, int)}.
    *
    * @return the page size, {@code long} because in theory we could have pages larger than 2 GiB
-   * @see <a href="GETPAGESIZE(2)">http://man7.org/linux/man-pages/man2/getpagesize.2.html</a>
+   * @see <a href="http://man7.org/linux/man-pages/man2/getpagesize.2.html">GETPAGESIZE(2)</a>
    */
   public static long getpagesize() {
     return getpagesize0();
