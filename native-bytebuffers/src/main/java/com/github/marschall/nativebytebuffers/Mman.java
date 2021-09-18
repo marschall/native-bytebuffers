@@ -1,5 +1,6 @@
 package com.github.marschall.nativebytebuffers;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Objects;
 /**
@@ -113,12 +114,38 @@ public final class Mman {
   }
 
   private static native void munmap0(ByteBuffer buffer);
-  
-  public static int memfd_create(String name, int flags) {
-    return memfd_create(name, flags);
+
+  /**
+   * Calls {@code memfd_create()} to create an anonymous file and returns a file
+   * descriptor that refers to it.
+   *
+   * @param name
+   *          the name supplied in name is used as a filename and will be
+   *          displayed as the target of the corresponding symbolic link in the
+   *          directory {@code /proc/self/fd/}. The displayed name is always
+   *          prefixed with memfd: and serves only for debugging purposes. Names
+   *          do not affect the behavior of the file descriptor, and as such
+   *          multiple files can have the same name without any side effects.
+   * @param flags
+   *          bitwise ORed in flags to change the behavior of
+   *          {@code memfd_create()}
+   *
+   * @return new file descriptor that can be used to refer to the file. This
+   *         file descriptor is opened for both reading and writing.
+   *
+   * @see MemfdCreateFlags
+   * @see <a href="https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)<a>
+   */
+  public static int memfd_create(String name, int flags) throws IOException {
+    int fd = memfd_create0(name, flags);
+    if (fd == -1) {
+      // should not happen, should be handeled in JNI
+      throw new IOException("could not crate memfd: " + name);
+    }
+    return fd;
   }
-  
-  private static native int memfd_create0(String name, int flags);
+
+  private static native int memfd_create0(String name, int flags) throws IOException;
 
   /**
    * Returns the number of bytes in a memory page,

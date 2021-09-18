@@ -1,3 +1,6 @@
+// for memfd_create
+#define _GNU_SOURCE
+
 #include <sys/errno.h>
 #include <sys/mman.h>
 #include <string.h>
@@ -56,6 +59,37 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
   else
   {
     throwJniExceptionWithMessage(env, "could not get buffer capacity", RELEASE_FAILED_EXCEPTION);
+  }
+}
+
+JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1create0
+  (JNIEnv *env, jclass clazz, jstring jname, jint flags)
+{
+  _Static_assert (sizeof(jint) == sizeof(int), "sizeof(jint) == sizeof(int)");
+  char name[250];
+  memset(name, 0, sizeof(name)); 
+
+  jsize utfLength = (*env)->GetStringUTFLength(env, jname);
+  if (utfLength > 249)
+  {
+    throwJniExceptionWithMessage(env, "could not create memfd", IO_EXCEPTION);
+    return -1;
+  }
+  (*env)->GetStringUTFRegion(env, jname, 0, utfLength, name);
+  if ((*env)->ExceptionOccurred(env) != NULL)
+  {
+    return -1;
+  }
+
+  int fd =  memfd_create(name, (unsigned int) flags);
+  if (fd != -1)
+  {
+    return fd;
+  }
+  else
+  {
+    throwJniExceptionWithErrno(env, errno, ILLEGAL_ARGUMENT_EXCEPTION);
+    return -1;
   }
 }
 
