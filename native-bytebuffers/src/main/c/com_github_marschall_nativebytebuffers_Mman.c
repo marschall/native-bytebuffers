@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1c
   jsize utfLength = (*env)->GetStringUTFLength(env, jname);
   if (utfLength > 249)
   {
-    throwJniExceptionWithMessage(env, "could not create memfd", IO_EXCEPTION);
+    throwJniExceptionWithMessage(env, "could not create memfd", ILLEGAL_ARGUMENT_EXCEPTION);
     return -1;
   }
   (*env)->GetStringUTFRegion(env, jname, 0, utfLength, name);
@@ -88,7 +88,7 @@ JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1c
   }
   else
   {
-    throwJniExceptionWithErrno(env, errno, ILLEGAL_ARGUMENT_EXCEPTION);
+    throwJniExceptionWithErrno(env, errno, IO_EXCEPTION);
     return -1;
   }
 }
