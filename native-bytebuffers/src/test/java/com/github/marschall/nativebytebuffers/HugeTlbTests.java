@@ -1,6 +1,7 @@
 package com.github.marschall.nativebytebuffers;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.io.IOException;
@@ -12,9 +13,9 @@ class HugeTlbTests {
   @Test
   void getHugeGid() throws IOException {
     assumeTrue(OperatingSystemAssumptions.isLinux());
-    
+
     int hugeGid = HugeTlb.getHugeGid();
-    assertTrue(hugeGid > 0);
+    assertThat("hugeGid", hugeGid, greaterThan(0));
   }
 
 }
