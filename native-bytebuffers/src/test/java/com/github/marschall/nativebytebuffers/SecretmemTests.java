@@ -1,5 +1,6 @@
 package com.github.marschall.nativebytebuffers;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
 
 import org.junit.jupiter.api.Disabled;
@@ -9,7 +10,7 @@ class SecretmemTests {
 
   @Test
   @Disabled
-  void memfd_create() {
+  void memfd_create() throws IOException {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int fd = Secretmem.memfd_secret(0); // TODO flags
     try {
