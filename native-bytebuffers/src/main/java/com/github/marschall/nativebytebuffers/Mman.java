@@ -48,8 +48,6 @@ public final class Mman {
     return buffer;
   }
 
-  private static native ByteBuffer mmap0(int length);
-
   /**
    * Calls {@code mmap()} to create a virtual memory region and creates a
    * {@code ByteBuffer} around it.
@@ -82,8 +80,23 @@ public final class Mman {
     }
     return buffer;
   }
+  public static ByteBuffer mmap(int length, int flags, int fd) {
+    if (length <= 0) {
+      throw new IllegalArgumentException("non postive length: " + length);
+    }
+    ByteBuffer buffer = mmap2(length, flags, fd);
+
+    if (buffer == null) {
+      throw new AllocationFailedException("mmap failed");
+    }
+    return buffer;
+  }
+
+  private static native ByteBuffer mmap0(int length);
 
   private static native ByteBuffer mmap1(int length, int flags);
+
+  private static native ByteBuffer mmap2(int length, int flags, int fd);
 
   /**
    * Calls {@code munmap()} on the contents of the given {@link ByteBuffer}.
@@ -132,9 +145,11 @@ public final class Mman {
    *
    * @return new file descriptor that can be used to refer to the file. This
    *         file descriptor is opened for both reading and writing.
-   *
+   * @throws IOException
+   *           if {@code memfd_create()} fails
    * @see MemfdCreateFlags
-   * @see <a href="https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)<a>
+   * @see <a href=
+   *      "https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)<a>
    */
   public static int memfd_create(String name, int flags) throws IOException {
     int fd = memfd_create0(name, flags);

@@ -36,6 +36,23 @@ JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap1
   }
 }
 
+JNIEXPORT jobject JNICALL Java_com_github_marschall_nativebytebuffers_Mman_mmap2
+  (JNIEnv *env, jclass clazz, jint length, jint flags, jint fd)
+{
+  int prot = PROT_READ | PROT_WRITE;
+  off_t offset = 0;
+  void *addr = mmap(NULL, (size_t) length, prot, flags, fd, offset);
+  if (addr != MAP_FAILED)
+  {
+    return (*env)->NewDirectByteBuffer(env, addr, length);
+  }
+  else
+  {
+    throwJniExceptionWithErrno(env, errno, ALLOCATION_FAILED_EXCEPTION);
+    return NULL;
+  }
+}
+
 JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
   (JNIEnv *env, jclass clazz, jobject buf)
 {

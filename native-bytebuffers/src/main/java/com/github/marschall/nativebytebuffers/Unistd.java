@@ -15,6 +15,14 @@ public final class Unistd {
     throw new AssertionError("not instantiable");
   }
 
+  /**
+   *
+   * @param fildes
+   * @param length
+   * @throws IOException
+   *           if {@code ftruncate()} fails
+   * @see <a href="https://man7.org/linux/man-pages/man3/ftruncate.3p.html">ftruncate(3p)</a>
+   */
   public static void ftruncate(int fildes, long length) throws IOException {
     int ret = ftruncate0(fildes, length);
     if (ret == -1) {
@@ -25,6 +33,13 @@ public final class Unistd {
 
   private static native int ftruncate0(int fildes, long length);
 
+  /**
+   *
+   * @param fildes
+   * @throws IOException
+   *           if {@code close()} fails
+   * @see <a href="https://man7.org/linux/man-pages/man2/close.2.html">close(2)</a>
+   */
   public static void close(int fildes) throws IOException {
     int ret = close0(fildes);
     if (ret == -1) {
