@@ -5,3 +5,4 @@ release.properties
 mmap-argument
 mmap-argument-mac
 memfdcreate-argument
+fcntl-argument
