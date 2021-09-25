@@ -16,9 +16,10 @@ public final class Unistd {
   }
 
   /**
+   * Truncate a file to a specified length.
    *
-   * @param fildes
-   * @param length
+   * @param fildes file descriptor referring to the underlying open file
+   * @param length the size to truncate to
    * @throws IOException
    *           if {@code ftruncate()} fails
    * @see <a href="https://man7.org/linux/man-pages/man3/ftruncate.3p.html">ftruncate(3p)</a>
@@ -34,8 +35,9 @@ public final class Unistd {
   private static native int ftruncate0(int fildes, long length);
 
   /**
+   * Close a file descriptor.
    *
-   * @param fildes
+   * @param fildes file descriptor referring to the underlying open file
    * @throws IOException
    *           if {@code close()} fails
    * @see <a href="https://man7.org/linux/man-pages/man2/close.2.html">close(2)</a>
