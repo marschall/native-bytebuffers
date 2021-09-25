@@ -166,7 +166,7 @@ public final class Mman {
     int fd = memfd_create0(nameInBytes, nameLength, flags);
     if (fd == -1) {
       // should not happen, should be handeled in JNI
-      throw new IOException("could not crate memfd: " + name);
+      throw new IOException("could not create memfd: " + name);
     }
     return fd;
   }
