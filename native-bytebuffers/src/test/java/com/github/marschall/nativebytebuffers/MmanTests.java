@@ -112,13 +112,32 @@ class MmanTests {
   }
 
   @Test
-  void memfd_create() throws IOException {
+  void memfd_createSuccess() throws IOException {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     int fd = Mman.memfd_create(this.getClass().getName(), 0);
     Unistd.ftruncate(fd, pagesize);
     try {
       ByteBuffer buffer = Mman.mmap(pagesize, flags, fd);
+      try {
+        ByteBufferAssertions.assertReadableAndWritable(buffer);
+      } finally {
+        Mman.munmap(buffer);
+      }
+    } finally {
+      Unistd.close(fd);
+    }
+  }
+
+  @Test
+  void memfd_createSuccessHugetlb() throws IOException {
+    int size = 2 * 1024 * 1024;
+    int mmapFlags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
+    int memfdFlags = MemfdCreateFlags.MFD_HUGETLB | MemfdCreateFlags.MFD_HUGE_2MB;
+    int fd = Mman.memfd_create(this.getClass().getName(), memfdFlags);
+    Unistd.ftruncate(fd, size);
+    try {
+      ByteBuffer buffer = Mman.mmap(size, mmapFlags, fd);
       try {
         ByteBufferAssertions.assertReadableAndWritable(buffer);
       } finally {
