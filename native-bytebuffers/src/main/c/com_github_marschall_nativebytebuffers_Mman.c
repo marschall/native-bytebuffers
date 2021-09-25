@@ -83,6 +83,7 @@ JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1c
   (JNIEnv *env, jclass clazz, jbyteArray jname, jint jnameLength, jint flags)
 {
   _Static_assert (sizeof(jbyte) == sizeof(char), "sizeof(jbyte) == sizeof(char)");
+  _Static_assert (sizeof(jint) == sizeof(unsigned int), "sizeof(jint) == sizeof(unsigned int)");
   char name[250];
 
   (*env)->GetByteArrayRegion(env, jname, 0, jnameLength, (jbyte *) name);
