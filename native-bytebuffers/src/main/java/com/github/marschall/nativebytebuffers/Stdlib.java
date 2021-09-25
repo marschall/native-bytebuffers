@@ -31,7 +31,7 @@ public final class Stdlib {
    * @throws IllegalArgumentException
    *           if {@code size} is not positive
    * @see #free(ByteBuffer)
-   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
+   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">malloc(3)</a>
    */
   public static ByteBuffer malloc(int size) {
     if (size <= 0) {
@@ -61,7 +61,7 @@ public final class Stdlib {
    * @throws IllegalArgumentException
    *           if {@code size} is not positive
    * @see #free(ByteBuffer)
-   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
+   * @see <a href="http://man7.org/linux/man-pages/man3/malloc.3.html">malloc(3)</a>
    */
   public static ByteBuffer calloc(int size) {
     if (size <= 0) {
@@ -96,7 +96,7 @@ public final class Stdlib {
    *           if {@code alignment} is not positive,
    *           if {@code size} is not positive
    * @see #free(ByteBuffer)
-   * @see <a href="http://man7.org/linux/man-pages/man3/posix_memalign.3.html">POSIX_MEMALIGN(3)</a>
+   * @see <a href="http://man7.org/linux/man-pages/man3/posix_memalign.3.html">posix_memalign(3)</a>
    */
   public static ByteBuffer aligned_alloc(int alignment, int size) {
     if (alignment <= 0) {
@@ -131,7 +131,7 @@ public final class Stdlib {
    * @throws IllegalArgumentException
    *           if {@code buffer} is not a direct buffer
    * @see <a href=
-   *      "http://man7.org/linux/man-pages/man3/malloc.3.html">MALLOC(3)</a>
+   *      "http://man7.org/linux/man-pages/man3/malloc.3.html">malloc(3)</a>
    */
   public static void free(ByteBuffer buffer) {
     Objects.requireNonNull(buffer, "buffer");
