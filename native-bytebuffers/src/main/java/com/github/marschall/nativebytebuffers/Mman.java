@@ -2,14 +2,20 @@ package com.github.marschall.nativebytebuffers;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
 import java.util.Objects;
 /**
  * Provides access to memory management using {@code sys/mman.h}.
  */
 public final class Mman {
 
+  private static final Charset NATIVE_CHARSET;
+
   static {
     LibraryLoader.assertInitialized();
+    // JEP 400
+    String nativeCharsetName = System.getProperty("native.encoding", Charset.defaultCharset().name());
+    NATIVE_CHARSET = Charset.forName(nativeCharsetName);
   }
 
   private Mman() {
@@ -139,6 +145,7 @@ public final class Mman {
    *          prefixed with memfd: and serves only for debugging purposes. Names
    *          do not affect the behavior of the file descriptor, and as such
    *          multiple files can have the same name without any side effects.
+   *          Must not be longer than 249 in the native encoding
    * @param flags
    *          bitwise ORed in flags to change the behavior of
    *          {@code memfd_create()}
@@ -148,11 +155,15 @@ public final class Mman {
    * @throws IOException
    *           if {@code memfd_create()} fails
    * @see MemfdCreateFlags
-   * @see <a href=
-   *      "https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)<a>
+   * @see <a href="https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)<a>
    */
   public static int memfd_create(String name, int flags) throws IOException {
-    int fd = memfd_create0(name, flags);
+    byte[] nameInBytes = name.getBytes(NATIVE_CHARSET);
+    int nameLength = nameInBytes.length;
+    if (nameLength > 249) {
+      throw new IllegalArgumentException("name too long");
+    }
+    int fd = memfd_create0(nameInBytes, nameLength, flags);
     if (fd == -1) {
       // should not happen, should be handeled in JNI
       throw new IOException("could not crate memfd: " + name);
@@ -160,7 +171,7 @@ public final class Mman {
     return fd;
   }
 
-  private static native int memfd_create0(String name, int flags) throws IOException;
+  private static native int memfd_create0(byte[] name, int nameLength, int flags) throws IOException;
 
   /**
    * Returns the number of bytes in a memory page,

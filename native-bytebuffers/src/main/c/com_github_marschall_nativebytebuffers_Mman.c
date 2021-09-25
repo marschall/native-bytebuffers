@@ -80,23 +80,17 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
 }
 
 JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1create0
-  (JNIEnv *env, jclass clazz, jstring jname, jint flags)
+  (JNIEnv *env, jclass clazz, jbyteArray jname, jint jnameLength, jint flags)
 {
-  _Static_assert (sizeof(jint) == sizeof(int), "sizeof(jint) == sizeof(int)");
+  _Static_assert (sizeof(jbyte) == sizeof(char), "sizeof(jbyte) == sizeof(char)");
   char name[250];
-  memset(name, 0, sizeof(name)); 
 
-  jsize utfLength = (*env)->GetStringUTFLength(env, jname);
-  if (utfLength > 249)
-  {
-    throwJniExceptionWithMessage(env, "could not create memfd", ILLEGAL_ARGUMENT_EXCEPTION);
-    return -1;
-  }
-  (*env)->GetStringUTFRegion(env, jname, 0, utfLength, name);
+  (*env)->GetByteArrayRegion(env, jname, 0, jnameLength, (jbyte *) name);
   if ((*env)->ExceptionOccurred(env) != NULL)
   {
     return -1;
   }
+  name[jnameLength] = 0;
 
   int fd =  memfd_create(name, (unsigned int) flags);
   if (fd != -1)
