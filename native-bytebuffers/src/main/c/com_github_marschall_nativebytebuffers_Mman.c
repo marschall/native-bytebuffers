@@ -82,6 +82,7 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
 JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1create0
   (JNIEnv *env, jclass clazz, jbyteArray jname, jint jnameLength, jint flags)
 {
+#ifdef memfd_create
   _Static_assert (sizeof(jbyte) == sizeof(char), "sizeof(jbyte) == sizeof(char)");
   _Static_assert (sizeof(jint) == sizeof(unsigned int), "sizeof(jint) == sizeof(unsigned int)");
   char name[250];
@@ -103,6 +104,10 @@ JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1c
     throwJniExceptionWithErrno(env, errno, IO_EXCEPTION);
     return -1;
   }
+#else
+  throwJniExceptionWithMessage(env, "memfd_create is not supported", UNSUPPORTED_OPERATION_EXCEPTION);
+  return -1;
+#endif
 }
 
 JNIEXPORT jlong JNICALL Java_com_github_marschall_nativebytebuffers_Mman_getpagesize0

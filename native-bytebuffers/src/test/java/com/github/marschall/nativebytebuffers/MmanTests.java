@@ -2,7 +2,9 @@ package com.github.marschall.nativebytebuffers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.io.IOException;
@@ -112,7 +114,14 @@ class MmanTests {
   }
 
   @Test
+  void memfd_createUnsupported() throws IOException {
+    assumeFalse(OperatingSystemAssumptions.isLinux());
+    assertThrows(UnsupportedOperationException.class, () -> Mman.memfd_create(this.getClass().getName(), 0));
+  }
+
+  @Test
   void memfd_createSuccess() throws IOException {
+    assumeTrue(OperatingSystemAssumptions.isLinux());
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     int fd = Mman.memfd_create(this.getClass().getName(), 0);
@@ -131,6 +140,7 @@ class MmanTests {
 
   @Test
   void memfd_createSuccessHugetlb() throws IOException {
+    assumeTrue(OperatingSystemAssumptions.isLinux());
     int size = 2 * 1024 * 1024;
     int mmapFlags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     int memfdFlags = MemfdCreateFlags.MFD_HUGETLB | MemfdCreateFlags.MFD_HUGE_2MB;
