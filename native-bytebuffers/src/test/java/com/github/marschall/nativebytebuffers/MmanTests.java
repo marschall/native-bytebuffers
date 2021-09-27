@@ -125,8 +125,8 @@ class MmanTests {
     int pagesize = Math.toIntExact(Mman.getpagesize());
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     int fd = Mman.memfd_create(this.getClass().getName(), 0);
-    Unistd.ftruncate(fd, pagesize);
     try {
+      Unistd.ftruncate(fd, pagesize);
       ByteBuffer buffer = Mman.mmap(pagesize, flags, fd);
       try {
         ByteBufferAssertions.assertReadableAndWritable(buffer);
@@ -145,8 +145,8 @@ class MmanTests {
     int mmapFlags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     int memfdFlags = MemfdCreateFlags.MFD_HUGETLB | MemfdCreateFlags.MFD_HUGE_2MB;
     int fd = Mman.memfd_create(this.getClass().getName(), memfdFlags);
-    Unistd.ftruncate(fd, size);
     try {
+      Unistd.ftruncate(fd, size);
       ByteBuffer buffer = Mman.mmap(size, mmapFlags, fd);
       try {
         ByteBufferAssertions.assertReadableAndWritable(buffer);
