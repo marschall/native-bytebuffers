@@ -8,10 +8,10 @@ public final class Seals {
 
   /**
    * If this seal is set, any further call to {@link Fcntl#fcntl(int, int, int)}
-   * with {@link #F_ADD_SEALS} fails with the error EPERM. Therefore, this seal
-   * prevents any modifications to the set of seals itself. If the initial set
-   * of seals of a file includes {@link #F_SEAL_SEAL}, then this effectively
-   * causes the set of seals to be constant and locked.
+   * with {@link FcntlCommands#F_ADD_SEALS} fails with the error EPERM. Therefore,
+   * this seal prevents any modifications to the set of seals itself. If the
+   * initial set of seals of a file includes {@link #F_SEAL_SEAL}, then this
+   * effectively causes the set of seals to be constant and locked.
    */
   public static final int F_SEAL_SEAL = 1;
 
@@ -42,11 +42,11 @@ public final class Seals {
    * memory-mappings via {@link Mman#mmap(int, int, int)} will also fail with
    * EPERM.
    * <p>
-   * Using the {@link #F_ADD_SEALS} operation to set the {@link #F_SEAL_WRITE}
-   * seal fails with EBUSY if any writable, shared mapping exists. Such mappings
-   * must be unmapped before you can add this seal. Furthermore, if there are
-   * any asynchronous I/O operations (io_submit(2)) pending on the file, all
-   * outstanding writes will be discarded.
+   * Using the {@link FcntlCommands#F_ADD_SEALS} operation to set the
+   * {@link #F_SEAL_WRITE} seal fails with EBUSY if any writable, shared mapping
+   * exists. Such mappings must be unmapped before you can add this seal.
+   * Furthermore, if there are any asynchronous I/O operations (io_submit(2))
+   * pending on the file, all outstanding writes will be discarded.
    */
   public static final int F_SEAL_WRITE = 8;
 

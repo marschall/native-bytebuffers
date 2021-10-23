@@ -155,7 +155,7 @@ public final class Mman {
    * @throws IOException
    *           if {@code memfd_create()} fails
    * @see MemfdCreateFlags
-   * @see <a href="https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)<a>
+   * @see <a href="https://man7.org/linux/man-pages/man2/memfd_create.2.html">memfd_create(2)</a>
    */
   public static int memfd_create(String name, int flags) throws IOException {
     byte[] nameInBytes = name.getBytes(NATIVE_CHARSET);
