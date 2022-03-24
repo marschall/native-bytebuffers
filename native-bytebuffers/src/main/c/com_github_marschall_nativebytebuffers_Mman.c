@@ -3,6 +3,7 @@
 
 #include <sys/errno.h>
 #include <sys/mman.h>
+#include <sys/syscall.h>      /* for SYS_* definitions */
 #include <string.h>
 #include <unistd.h>
 
@@ -82,7 +83,7 @@ JNIEXPORT void JNICALL Java_com_github_marschall_nativebytebuffers_Mman_munmap0
 JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Mman_memfd_1create0
   (JNIEnv *env, jclass clazz, jbyteArray jname, jint jnameLength, jint flags)
 {
-#ifdef memfd_create
+#ifdef SYS_memfd_create
   _Static_assert (sizeof(jbyte) == sizeof(char), "sizeof(jbyte) == sizeof(char)");
   _Static_assert (sizeof(jint) == sizeof(unsigned int), "sizeof(jint) == sizeof(unsigned int)");
   char name[250];
