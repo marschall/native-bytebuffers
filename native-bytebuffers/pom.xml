@@ -63,6 +63,18 @@
         </configuration>
       </plugin>
       <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <forkMode>once</forkMode>
+          <!-- target/nar/aioj-core-0.1.0-SNAPSHOT-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni/ -->
+          <!-- target/nar/native-bytebuffers-0.2.0-SNAPSHOT-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -->
+          <argLine>
+            -Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-${nar.aol}-jni/lib/${nar.aol}/jni
+            -Xcheck:jni
+          </argLine>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>com.github.maven-nar</groupId>
         <artifactId>nar-maven-plugin</artifactId>
         <extensions>true</extensions>
@@ -99,46 +111,17 @@
 
   <profiles>
     <profile>
-      <id>linux-AMD64</id>
-      <activation>
-        <os>
-          <name>Linux</name>
-          <arch>amd64</arch>
-        </os>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-              <forkMode>once</forkMode>
-              <!-- target/nar/aioj-core-0.1.0-SNAPSHOT-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni/ -->
-              <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-amd64-Linux-gpp-jni/lib/amd64-Linux-gpp/jni -Xcheck:jni</argLine>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>mac-x86_64</id>
+      <id>mac-aarch64</id>
       <activation>
         <os>
           <family>mac</family>
-          <arch>x86_64</arch>
+          <arch>aarch64</arch>
         </os>
       </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <configuration>
-              <forkMode>once</forkMode>
-              <!-- target/nar/native-bytebuffers-0.2.0-SNAPSHOT-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -->
-              <argLine>-Djava.library.path=${project.build.directory}/nar/${project.artifactId}-${project.version}-x86_64-MacOSX-gpp-jni/lib/x86_64-MacOSX-gpp/jni -Xcheck:jni</argLine>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
+      <properties>
+        <!-- https://github.com/maven-nar/nar-maven-plugin/issues/371 -->
+        <nar.aolProperties>${project.basedir}/src/nar/apple.arm.aol.properties</nar.aolProperties>
+      </properties>
     </profile>
   </profiles>
 
