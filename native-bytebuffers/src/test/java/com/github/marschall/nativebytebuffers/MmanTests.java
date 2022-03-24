@@ -52,7 +52,8 @@ class MmanTests {
 
   @Test
   void mmapSuccessMacOsSuperpage() {
-    assumeTrue(OperatingSystemAssumptions.isMacOs());
+    assumeTrue(OperatingSystemAssumptions.isMacOs(), "superpages are only supported on macOS");
+    assumeFalse(OperatingSystemAssumptions.isAarch64(), "superpages are not supported on M1");
     int size = 2 * 1024 * 1024;
     int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS | MmapFlagsMacOs.VM_FLAGS_SUPERPAGE_SIZE_2MB;
     ByteBuffer buffer = Mman.mmap(size, flags);

@@ -11,6 +11,10 @@ final class OperatingSystemAssumptions {
   static boolean isMacOs() {
     return System.getProperty("os.name").toLowerCase(Locale.US).contains("mac");
   }
+  
+  static boolean isAarch64() {
+    return System.getProperty("os.arch").equals("aarch64");
+  }
 
   static boolean isLinux() {
     return System.getProperty("os.name").toLowerCase(Locale.US).contains("linux");
