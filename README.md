@@ -6,6 +6,7 @@ ByteBuffers that are allocated and released directly with:
 * `malloc` and `free`
 * `calloc` and `free`
 * `aglined_alloc` and `free`
+* `memfd_secret` and `close`
 * `mmap` and `munmap`
   * HugeTLB page support on Linux
   * superpage support on macOS
@@ -71,3 +72,9 @@ This obviously brings all the issues of manual memory management to Java like:
 These issues can crash the JVM.
 
 As this project uses JNI a native library is required. We ship one for Linux x86-64 but for every other platform you have to build it yourself.
+
+Links
+-----
+
+- [nosecmem](https://github.com/JonathonReinhart/nosecmem)
+- [Using Linux's memfd_secret syscall from the JVM with JEP-419](https://blog.arkey.fr/2022/05/16/linux_memfd_secret_with_jep-419/)

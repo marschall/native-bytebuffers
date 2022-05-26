@@ -1,6 +1,7 @@
 
 #include <sys/syscall.h>      /* Definition of SYS_* constants */
 #include <unistd.h>
+#include <errno.h>
 
 #ifdef SYS_memfd_secret
 #define _secretmem
@@ -13,18 +14,18 @@
 
 
 #ifdef _secretmem
-static inline int memfd_secret(unsigned int flags)
+static inline long int memfd_secret(int flags)
 {
   return syscall(SYS_memfd_secret, flags);
 }
 #endif
 
 JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Secretmem_memfd_1secret0
-  (JNIEnv *env, jclass clazz, jlong flags)
+  (JNIEnv *env, jclass clazz, jint flags)
 {
 #ifdef _secretmem
-  _Static_assert (sizeof(jint) == sizeof(unsigned int), "sizeof(jint) == sizeof(unsigned int)");
-  int fd =  memfd_secret((unsigned int) flags);
+  _Static_assert (sizeof(jint) == sizeof(int), "sizeof(jint) == sizeof(int)");
+  int fd = (int) memfd_secret(flags);
   if (fd != -1)
   {
     return fd;

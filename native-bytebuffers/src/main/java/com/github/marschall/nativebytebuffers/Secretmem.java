@@ -2,7 +2,11 @@ package com.github.marschall.nativebytebuffers;
 
 import java.io.IOException;
 
-// linux/secretmem.h
+/**
+ * Provides access to <a href="https://lwn.net/Articles/865256/">memfd_secret</a>.
+ * <p>
+ * Requires the <code>secretmem.enable=1</code> kernel parameter.
+ */
 public final class Secretmem {
 
   static {
@@ -13,7 +17,7 @@ public final class Secretmem {
     throw new AssertionError("not instantiable");
   }
 
-  public static int memfd_secret(long flags) throws IOException {
+  public static int memfd_secret(int flags) throws IOException {
     int fd = memfd_secret0(flags);
     if (fd == -1) {
       // should not happen, should be handeled in JNI
@@ -22,6 +26,6 @@ public final class Secretmem {
     return fd;
   }
 
-  private static native int memfd_secret0(long flags) throws IOException;
+  private static native int memfd_secret0(int flags) throws IOException;
 
 }
