@@ -222,6 +222,9 @@
   <profiles>
     <profile>
       <id>deploy-to-sonatype-oss</id>
+      <modules>
+        <module>native-bytebuffers</module>
+      </modules>
       <build>
         <plugins>
           <plugin>
