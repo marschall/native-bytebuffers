@@ -50,7 +50,7 @@
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
         <configuration>
-          <skip>true</skip>
+          <release>17</release>
           <additionalOptions>--add-modules jdk.incubator.foreign</additionalOptions>
         </configuration>
       </plugin>
