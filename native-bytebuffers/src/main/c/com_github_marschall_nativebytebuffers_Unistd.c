@@ -8,6 +8,13 @@
 #include "jniUtil.h"
 #include "com_github_marschall_nativebytebuffers_Unistd.h"
 
+
+JNIEXPORT jlong JNICALL Java_com_github_marschall_nativebytebuffers_Unistd_getpagesize0
+  (JNIEnv *env, jclass clazz)
+{
+  return sysconf(_SC_PAGESIZE);
+}
+
 JNIEXPORT jint JNICALL Java_com_github_marschall_nativebytebuffers_Unistd_ftruncate0
   (JNIEnv *env, jclass clazz, jint fd, jlong length)
 {

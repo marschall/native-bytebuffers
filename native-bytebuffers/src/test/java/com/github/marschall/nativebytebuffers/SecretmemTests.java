@@ -1,5 +1,7 @@
 package com.github.marschall.nativebytebuffers;
 
+import static com.github.marschall.nativebytebuffers.Unistd.getpagesize;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -9,7 +11,7 @@ class SecretmemTests {
 
   @Test
   void memfd_create() throws IOException {
-    int pagesize = Math.toIntExact(Mman.getpagesize());
+    int pagesize = Math.toIntExact(getpagesize());
     int fd;
     try {
       fd = Secretmem.memfd_secret(0); // TODO flags

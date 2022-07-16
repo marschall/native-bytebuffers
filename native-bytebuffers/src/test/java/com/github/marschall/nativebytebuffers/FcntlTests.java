@@ -1,5 +1,6 @@
 package com.github.marschall.nativebytebuffers;
 
+import static com.github.marschall.nativebytebuffers.Unistd.getpagesize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -12,7 +13,7 @@ class FcntlTests {
   @Test
   void seals() throws IOException {
     assumeTrue(OperatingSystemAssumptions.isLinux());
-    int pagesize = Math.toIntExact(Mman.getpagesize());
+    int pagesize = Math.toIntExact(getpagesize());
     int flags = MemfdCreateFlags.MFD_ALLOW_SEALING;
     int fd = Mman.memfd_create(this.getClass().getName(), flags);
     try {

@@ -173,18 +173,4 @@ public final class Mman {
 
   private static native int memfd_create0(byte[] name, int nameLength, int flags) throws IOException;
 
-  /**
-   * Returns the number of bytes in a memory page,
-   * where "page" is a fixed-length block, the unit for memory allocation and
-   * file mapping performed by {@link Mman#mmap(int, int)}.
-   *
-   * @return the page size, {@code long} because in theory we could have pages larger than 2 GiB
-   * @see <a href="http://man7.org/linux/man-pages/man2/getpagesize.2.html">getpagesize(2)</a>
-   */
-  public static long getpagesize() {
-    return getpagesize0();
-  }
-
-  private static native long getpagesize0();
-
 }
