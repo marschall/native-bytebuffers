@@ -17,7 +17,7 @@ class MmanTests {
 
   @Test
   void mmapSuccess() {
-    int pagesize = Math.toIntExact(Unistd.getpagesize());
+    int pagesize = Math.toIntExact(getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
     assertNotNull(buffer);
     try {
@@ -32,7 +32,7 @@ class MmanTests {
   @Test
   void mmapSuccessMacOs() {
     assumeTrue(OperatingSystemAssumptions.isMacOs());
-    int pagesize = Math.toIntExact(Unistd.getpagesize());
+    int pagesize = Math.toIntExact(getpagesize());
     int flags = MmapFlagsMacOs.MAP_SHARED | MmapFlagsMacOs.MAP_ANONYMOUS;
     ByteBuffer buffer = Mman.mmap(pagesize, flags);
     assertNotNull(buffer);
@@ -65,7 +65,7 @@ class MmanTests {
   @Test
   void mmapSuccessLinux() {
     assumeTrue(OperatingSystemAssumptions.isLinux());
-    int pagesize = Math.toIntExact(Unistd.getpagesize());
+    int pagesize = Math.toIntExact(getpagesize());
     int flags = MmapFlags.MAP_SHARED | MmapFlags.MAP_ANONYMOUS;
     ByteBuffer buffer = Mman.mmap(pagesize, flags);
     assertNotNull(buffer);
@@ -98,7 +98,7 @@ class MmanTests {
 
   @Test
   void writeAndReadContents() {
-    int pagesize = Math.toIntExact(Unistd.getpagesize());
+    int pagesize = Math.toIntExact(getpagesize());
     ByteBuffer buffer = Mman.mmap(pagesize);
     assertNotNull(buffer);
 
