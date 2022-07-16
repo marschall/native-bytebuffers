@@ -15,9 +15,11 @@ Usage
 -----
 
 ```xml
-<groupId>com.github.marschall</groupId>
-<artifactId>native-bytebuffers</artifactId>
-<version>0.3.3</version>
+<dependency>
+    <groupId>com.github.marschall</groupId>
+    <artifactId>native-bytebuffers</artifactId>
+    <version>0.4.2</version>
+</dependency>
 ```
 
 ```java
