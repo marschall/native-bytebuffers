@@ -14,7 +14,7 @@ class SecretmemTests {
     int pagesize = Math.toIntExact(getpagesize());
     int fd;
     try {
-      fd = Secretmem.memfd_secret(0); // TODO flags
+      fd = Secretmem.memfd_secret(0);
     } catch (UnsupportedOperationException e) {
       // is allowed to happen
       return;
